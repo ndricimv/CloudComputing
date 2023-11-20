@@ -11,6 +11,7 @@ body, html{
     background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-sizing: border-box;
+    font-family: Poppins, sans-serif;
 }
 ul li a,
 a,
@@ -88,10 +89,19 @@ header{
     text-transform: uppercase;
     color: #626262;
 }
-.slider{}
+.slider{
+    max-height: 500px;
+    background-image:  url("../imgs/7.jpg");
+    /*background-repeat: no-repeat; */
+}
+
+.slider img{
+    margin: auto;
+    height: 400px;
+}
 
 .feature{
-    margin: auto;
+    margin: 50px 0 50px 0;
     width: 100%;
 }
 
@@ -229,3 +239,42 @@ header{
     background-color: #4A00E0;
     border-color: #8E2DE2;
 }
+
+.contact{
+    width: 80%;
+}
+
+.contactp{
+    display: flex;
+    padding: 20px 20px 20px 20px;
+}
+.contacta{
+    margin: 10px;
+}
+
+.kontaktforma .njerresht{
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    margin:auto;
+}
+
+footer{
+    height: auto;
+    padding: 20px;
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.footeri {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+    color: #fff;
+}
+
