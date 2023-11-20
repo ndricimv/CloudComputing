@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container login-page">
+        <div class="login">
+            <div class="loginheader">
+                <div class="atitle"><h2>Login to Managment Dashboard</h2></div>
+                <div></div>
+            </div>
+            <div class="loginform" id="loginform">
+                <form name="loginforma" method="post" action="">
+                    <p style="margin:20px 0 20px 0">Jepni te dhenat per tu kycur</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Shfrytezuesi" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Fjalekalimi" required>
+                    </div>
+                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Kycu</button>
+                    <a href="#" onclick="registerform()" class="btn btn-thjesht btn-block" id="regjistrohu">Regjistrohu</a>
+                </form>
+            </div>
+            <div class="registerform" id="registerform">
+                <form name="registerforma" method="post" action="">
+                    <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Emri" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Mbiemri" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Fjalekalimi" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" placeholder="Perserit Fjalekalimi" required>
+                    </div>
+                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Regjistrohu</button>
+                    <a href="#" onclick="loginform()" class="btn btn-thjesht btn-block" id="login">ose Kycu</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+        document.getElementById("registerform").style.display='none';
+        };
+
+        function registerform(){
+        var registration = document.getElementById('registerform');
+            if ( registration.style.display !== 'none' ) {
+                registration.style.display = 'none';
+            } else {
+                registration.style.display = '';
+                document.getElementById("loginform").style.display='none';
+            }
+         }
+
+        function loginform(){
+        var login = document.getElementById('loginform');
+            if ( login.style.display !== 'none' ) {
+                login.style.display = 'none';
+            } else {
+                login.style.display = '';
+                document.getElementById("registerform").style.display='none';
+            }
+         }
+
+    </script>
+</body>
+</html>

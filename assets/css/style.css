@@ -1,29 +1,119 @@
-*{
+*, *:before, *:after {
     margin: 0;
     padding: 0;
-}
-body{
+    box-sizing: border-box;
+  }
+body, html{
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
     background: #8E2DE2;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-sizing: border-box;
 }
+ul li a,
+a,
+body,
+span,
+text {
+    font-family: Poppins, sans-serif
+}
+
+header ul > li {
+    list-style: none;
+    float: left;
+    margin: 10px 10px auto;
+}
+
+.pastro{
+    clear: both;
+}
+
+.hide{
+    display:none;
+ }
+
+
+
 .container{
     margin: auto;
-    width: 80%;
+    width: 100%;
     background-color: white;
 }
 header{
 
 }
 .topnav{
+    margin: auto;
+    width: 100%;
+    max-height: 20px;
 
 }
-.nav{
+.topnavl{
+    margin: 0 0 0 10px;
 
+}
+.topnavr {
+    float: right;
+    margin: 0 10px 0 0;
+
+}
+.topnav p {
+    float: left;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 5px auto;
+}
+.topnav span, .topnav a {
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 5px auto;
+}
+
+.logo {
+    margin: 10px 0 0 0;
+}
+
+.logo img {
+    width: 200px;
+    float: left;
+}
+.nav {
+    float: right;
+    margin: 0 10px ;
+}
+.nav li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #626262;
 }
 .slider{}
 
-.feature{}
+.feature{
+    margin: auto;
+    width: 100%;
+}
+
+.featurediv{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    
+    
+}
+
+.featureitem{
+    margin: 0 20px 20px 20px;
+    border: 2px solid #4A00E0;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.front-page{
+    width: 80%;
+}
+
 
 .articels{
     width: 100%;
@@ -34,10 +124,11 @@ header{
 }
 
 .articel{
-    width: 400px;
+
+    width: 33%;
     height: auto;
-    padding: 5px;
-    margin: 10px 10px 10px 10px;
+    padding: 15px;
+
 
 }
 .atitle{
@@ -57,4 +148,84 @@ header{
     font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #aeb3b6;
+}
+
+.login-page{
+    width: 20%;
+    height: 100%;
+    float: right;
+    margin: 0 60px 0 0;
+    padding: 10px;
+
+}
+@media screen and (max-width:900px) {
+    .login-page{
+        margin: 20px 20px 20px 20px;
+        width: 90%;
+        height: 100%;
+    }
+}
+.login{
+    display: block;
+    margin: auto;
+    padding: 60px 25px 60px 25px;
+    
+    background: #FFF;
+    
+
+}
+.loginheader{
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+
+}
+.loginform{
+
+    margin: 10px;
+    padding: 5px;
+}
+
+.form-group{
+    margin-bottom: 15px;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #000 transparent;
+    padding: 6px 12px;
+    box-shadow:  none !important;
+}
+.btn-block{
+    display: block;
+    width: 100%;
+}
+.btn-rreth{
+    display: block;
+    width: 50%;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.btn-thjesht{
+    background-color: #fff;
+    color: #626262;
+
+}
+.btn-mir{
+    color: #fff;;
+    background-color: #4A00E0;
+    border-color: #8E2DE2;
 }
