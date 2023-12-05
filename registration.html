@@ -7,38 +7,26 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="login-page">
+    <div class="container login-page">
         <div class="login">
             <div class="loginheader">
-                <a href="index.html"><img src="assets/imgs/logo.png" /></a>
+                <a href="index.html"><img src="assets/imgs/logo.png"/></a>
                 <div class="atitle"><h2>Login to Managment Dashboard</h2></div>
-            </div>
-            <div class="loginform" id="loginform">
-                <form name="loginforma" method="post" action="">
-                    <p style="margin:20px 0 20px 0">Jepni te dhenat per tu kycur</p>
-                    <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Shfrytezuesi" required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" placeholder="Fjalekalimi" required>
-                    </div>
-                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Kycu</button>
-                    <a href="#" onclick="registerform()" class="btn btn-thjesht btn-block" id="regjistrohu">Regjistrohu</a>
-                </form>
+                <div></div>
             </div>
             <div class="registerform" id="registerform">
-                <form name="registerforma" onsubmit="return validimiform()">
+                <form name="registerforma" onsubmit="return validimiregjistrim()">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Emri" id="emri">
+                        <input class="form-control" type="text" placeholder="Emri" id="emri" >
                         <p class="fomrerror" id="emrigabim"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Mbiemri" id="mbiemri">
+                        <input class="form-control" type="text" placeholder="Mbiemri" id="mbiemri" >
                         <p class="fomrerror" id="mbiemrigabim"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Email" id="email">
+                        <input class="form-control" type="text" placeholder="Email" id="email" >
                         <p class="fomrerror" id="emailgabim"></p>
                     </div>
                     <div class="form-group">
@@ -49,12 +37,12 @@
                         <p class="fomrerror" id="fjalekalimigabim"></p>
                     </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Regjistrohu</button>
-                    <a href="#" onclick="loginform()" class="btn btn-thjesht btn-block" id="login">ose Kycu</a>
+                    <a href="#" onclick="return validimiregjistrim()">TEST</a>
+                    <a href="login.html" class="btn btn-thjesht btn-block" id="login">ose Kycu</a>
                 </form>
             </div>
         </div>
     </div>
-    <div class="container-login"></div>
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>

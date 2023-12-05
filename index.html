@@ -5,116 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud Computing</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container front-page">
         <header>
             <div class="topnav">
-                <div class="topnavl">
-                    <p><span>info@doamin.com</span> / 049123456</p>
-                </div>
-                <div class="topnavc"></div>
-                <div class="topnavr">
-                    <p><a href="login.html">Login</a> / <a href="login.html">register</a></p>
+                <div class="container width80">
+                    <div class="topnavl">
+                        <div class="topbarw">
+                            <p>info@doamin.com</p><p>049123456</p>
+                        </div>
+                    </div>
+                    <div class="topnavr">
+                        <div class="topbarw">
+                            <p><a href="login.html">Login</a></p><p><a href="login.html">register</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="pastro"></div>
-            <div class="logo"><img src="assets/imgs/logo.png"/></div>
-            <div class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutus.html">About US</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <div class="width80">
+                <div class="logo"><img src="assets/imgs/logow.png" /></div>
+                <div class="nav" id="navid">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <a href="javascript:void(0);" class="icon" onclick="navrespons()">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </ul>
+                </div>
             </div>
             <div class="pastro"></div>
-            <div class="slider"><img id="slideri"/></div>
+            <div class="slider"><img id="slideri" /></div>
         </header>
         <div class="pastro"></div>
         <div class="feature">
-            <div class="featurediv">
+            <div class="featurediv width65">
                 <div class="featureitem">
-                    <h2>Dedicated Server</h2>
-                    <h3>ESXi Server 1</h3>
-                    <p>
-                        <ul>
-                            <li><span class="fcheck"></span> Latest gen Intel Xeon E3</li>
-                            <li><span class="fcheck"></span> Anti-DDOS protection</li>
-                            <li><span class="fcheck"></span> Up to 1Gbit/s bandwidth</li>
-                        </ul>
-                        <p>
-                            Duke filluar nga 95EUR
-                        </p>
+
+                    <img src="assets/imgs/icon1.png" alt="">
+                    <h2>Dedicated Servers</h2>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="fcmimi">
+                        <span>Start from</span>
+                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
                     </p>
-                    <button class="btn btn-mir btn-rreth">Blej</button>
+                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
+
                 </div>
                 <div class="featureitem">
-                    <h2>Dedicated Server</h2>
-                    <h3>ESXi Server 1</h3>
-                    <p>
-                        <ul>
-                            <li><span class="fcheck"></span> Latest gen Intel Xeon E3</li>
-                            <li><span class="fcheck"></span> Anti-DDOS protection</li>
-                            <li><span class="fcheck"></span> Up to 1Gbit/s bandwidth</li>
-                        </ul>
-                        <p>
-                            Duke filluar nga 95EUR
-                        </p>
+                    <img src="assets/imgs/icon2.png" alt="">
+                    <h2>VPS</h2>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="fcmimi">
+                        <span>Start from </span>
+                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
                     </p>
-                    <button class="btn btn-mir btn-rreth">Blej</button>
+                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
+
                 </div>
                 <div class="featureitem">
-                    <h2>Dedicated Server</h2>
-                    <h3>ESXi Server 1</h3>
-                    <p>
-                        <ul>
-                            <li><span class="fcheck"></span> gen Intel Xeon E3</li>
-                            <li><span class="fcheck"></span> Anti-DDOS protection</li>
-                            <li><span class="fcheck"></span> Up to 1Gbit/s bandwidth</li>
-                        </ul>
-                        <p>
-                            Duke filluar nga 95EUR
-                        </p>
+
+                    <img src="assets/imgs/icon3.png" alt="">
+
+                    <div class="clearfix" style="background-size: cover;"></div>
+                    <h2>Shared Hosting</h2>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="fcmimi">
+                        <span>Start from</span>
+                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
                     </p>
-                    <button class="btn btn-mir btn-rreth">Blej</button>
+                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
                 </div>
+
             </div>
         </div>
-        <div class="articels">
+        <div class="articels width65">
             <div class="articel">
                 <div class="atitle"><h2>Articel 1</h2></div>
                 <div class="aimage"><img src="assets/imgs/1.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
             <div class="articel">
                 <div class="atitle"><h2>Articel 2</h2></div>
                 <div class="aimage"><img src="assets/imgs/2.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
             <div class="articel">
                 <div class="atitle"><h2>Articel 3</h2></div>
                 <div class="aimage"><img src="assets/imgs/3.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
             <div class="articel">
                 <div class="atitle"><h2>Articel 4</h2></div>
                 <div class="aimage"><img src="assets/imgs/4.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
             <div class="articel">
                 <div class="atitle"><h2>Articel 5</h2></div>
                 <div class="aimage"><img src="assets/imgs/5.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
             <div class="articel">
                 <div class="atitle"><h2>Articel 5</h2></div>
                 <div class="aimage"><img src="assets/imgs/6.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
             </div>
         </div>
 
         <footer>
-            <div class="footeri">
+            <div class="footeri width80">
                 <div class="footerleft">
                     <h2>Cloud Computin</h2>
                 </div>

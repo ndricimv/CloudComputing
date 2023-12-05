@@ -67,7 +67,7 @@ window.onload = function(){
 	
 	/*Slideri*/
 	let i=0;
-	let imgArrey = ["assets/imgs/s1.jpg","assets//imgs/s2.jpg","assets//imgs/s3.jpg"];
+let imgArrey = ["assets/imgs/s4.jpg", "assets/imgs/s5.jpg","assets//imgs/s6.jpg","assets//imgs/s7.jpg"];
 	
 	function slideri(){
 		document.getElementById('slideri').src=imgArrey[i];
@@ -80,3 +80,14 @@ window.onload = function(){
 	}
 	document.addEventListener(onload, slideri());
 	
+	
+	
+	/*Menu responsive*/
+	function navrespons() {
+            var x = document.getElementById("navid");
+            if (x.className === "nav") {
+                x.className += "responsive";
+            } else {
+                x.className = "nav";
+            }
+        }
