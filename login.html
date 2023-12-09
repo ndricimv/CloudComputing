@@ -14,20 +14,23 @@
                 <div class="atitle"><h2>Login to Managment Dashboard</h2></div>
             </div>
             <div class="loginform" id="loginform">
-                <form name="loginforma" method="post" action="">
+                <form name="loginforma" action="/login" onsubmit="return validimiforml()" method="post" id="login">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu kycur</p>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Shfrytezuesi" required>
+                        <input class="form-control" type="text" placeholder="Shfrytezuesi" id="shfrytezuesi">
+                        <p class="fomrerror" id="shfrytezuesigabim"></p>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" placeholder="Fjalekalimi" required>
+                        <input class="form-control" type="password" placeholder="Fjalekalimi" id="fjalekalimil">
+                        <p class="fomrerror" id="fjalekalimigabiml"></p>
                     </div>
-                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Kycu</button>
-                    <a href="#" onclick="registerform()" class="btn btn-thjesht btn-block" id="regjistrohu">Regjistrohu</a>
+                    <button class="btn btn-mir btn-block" name="submit" onclick="return validimiforml()">Kycu</button>
+               
+                    <a href="#" onclick="return registerform()" class="btn btn-thjesht btn-block" id="regjistrohu">Regjistrohu</a>
                 </form>
             </div>
             <div class="registerform" id="registerform">
-                <form name="registerforma" onsubmit="return validimiform()">
+                <form name="registerforma"  action="/register" onsubmit="validimiform()" method="post" id="register">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
                         <input class="form-control" type="text" placeholder="Emri" id="emri">
@@ -48,7 +51,9 @@
                         <input class="form-control" type="password" placeholder="Perserit Fjalekalimi" id="fjalekalimi">
                         <p class="fomrerror" id="fjalekalimigabim"></p>
                     </div>
-                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit">Regjistrohu</button>
+
+                    <button class="btn btn-mir btn-block" name="submit" onclick="return validimiform()">Regjistrohu</button>
+                
                     <a href="#" onclick="loginform()" class="btn btn-thjesht btn-block" id="login">ose Kycu</a>
                 </form>
             </div>
