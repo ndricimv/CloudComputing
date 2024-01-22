@@ -1,3 +1,8 @@
+<?php
+include_once 'assets/config/config.php';
+include_once 'assets/config/functions.php';
+$pageid=3;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,45 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="topnav">
-                <div class="container width80">
-                    <div class="topnavl">
-                        <div class="topbarw">
-                            <p>info@doamin.com</p><p>049123456</p>
-                        </div>
-                    </div>
-                    <div class="topnavr">
-                        <div class="topbarw">
-                            <p><a href="login.html">Login</a></p><p><a href="login.html">register</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pastro"></div>
-            <div class="width80">
-                <div class="logo"><img src="assets/imgs/logow.png" /></div>
-                <div class="nav" id="navid">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="servers.html">Servers</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <a href="javascript:void(0);" class="icon" onclick="navrespons()">
-                            <i class="fa fa-bars"></i>
-                        </a>
-                    </ul>
-                </div>
-            </div>
-            <div class="pastro"></div>
-            <div class="breadcrumbs">
-                <div class="width80">
-                    <div class="bcl"><h3>News</h3></div>
-                    <div class="bcr"><img src="assets/imgs/contactbc.jpg" /></div>
-                </div>
-
-            </div>
-        </header>
+        <?php include "header.php" ?> 
         <div class="pastro"></div>
         <div class="news width80">
             <div class="articel">
@@ -82,28 +49,7 @@
             </div>
         </div>
 
-        <footer>
-            <div class="footeri width80">
-                <div class="footerleft">
-                    <h2>Cloud Computin</h2>
-                </div>
-                <div class="footercenter">
-                    <ul>
-                        <li>Home</li>
-                        <li>Aount US</li>
-                        <li>Contact</li>
-                        <li>Login</li>
-                    </ul>
-                </div>
-                <div class="footerright">
-                    <div class="subs">
-                        <p>Emaili juaj!</p>
-                        <input class="form-control" type="email" placeholder="Email">
-                        <button class="btn btn-rreth btn-mir">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php include "footer.php" ?>
     </div>
     <script src="assets/js/scripts.js"></script>
 </body>
