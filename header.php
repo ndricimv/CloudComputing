@@ -1,4 +1,9 @@
-        <header>
+<?php
+$db = new Database();
+$menu = new Menu($db);
+$allMenu = $menu->readAllMenu();
+?>
+   <header>
             <div class="topnav">
                 <div class="container width80">
                     <div class="topnavl">
@@ -15,21 +20,20 @@
             </div>
             <div class="pastro"></div>
             <div class="width80">
-                <div class="logo"><img src="assets/imgs/logow.png" /></div>
+                <div class="logo"><img src="http://localhost/CloudComputing/assets/imgs/logow.png" /></div>
                 <div class="nav" id="navid">
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="servers.php">Servers</a></li>
-                        <li><a href="news.php">News</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                    <?php foreach ($allMenu as $menu): ?>
+                        <li><a href="<?php echo $menu['vlera']; ?>"><?php echo $menu['Emri']; ?></a></li>
                         <a href="javascript:void(0);" class="icon" onclick="navrespons()">
                             <i class="fa fa-bars"></i>
                         </a>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
             <div class="pastro"></div>
-            <?php 
+            <?php
             if($pageid == 1){
                 echo '<div class="slider"><img id="slideri" /></div>';
             }else if($pageid == 2){
@@ -56,7 +60,7 @@
             </div>';
             }
             else{
-                echo "Nothing found";
+              
             }
             ?>
             

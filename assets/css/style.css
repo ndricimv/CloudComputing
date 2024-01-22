@@ -677,4 +677,27 @@ footer ul > li {
     color: #fff;
 }
 
-
+table.serverat {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+  }
+  table.serverat td, table.serverat th {
+    border: 1px solid #FFFFFF;
+    padding: 3px 2px;
+  }
+  table.serverat tbody td {
+    font-size: 15px;
+  }
+  table.serverat thead {
+    background: #2E35B5;
+  }
+  table.serverat thead th {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  table.serverat tfoot td {
+    font-size: 14px;
+  }

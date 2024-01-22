@@ -1,6 +1,7 @@
 <?php
 include_once 'assets/config/config.php';
 include_once 'assets/config/functions.php';
+include_once 'assets/config/menu.php';
 $pageid = 4;
 ?>
 <!DOCTYPE html>
