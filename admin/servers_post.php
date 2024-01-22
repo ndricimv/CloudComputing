@@ -1,6 +1,7 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/servers.php';
+include_once '../assets/config/menu.php';
 $pageid = 0;
 $db = new Database();
 $news = new Servers($db);
@@ -10,8 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulli = $_POST['titulli'];
     $pershkrimi = $_POST['pershkrimi'];
     $cmimi = $_POST['cmimi'];
+    $foto = $_POST['foto'];
 
-    $news->createServer($titulli, $pershkrimi, $cmimi);
+    $news->createServer($titulli, $pershkrimi, $cmimi, $foto);
 }
 ?>
 
@@ -57,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group">
                             <input class="form-control"  type="text" name="cmimi" required>
                             <p class="fomrerror" id="emailgabim"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto" required>
                         </div>
                         <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
                     </form>

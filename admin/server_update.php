@@ -1,6 +1,7 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/servers.php';
+include_once '../assets/config/menu.php';
 $pageid = 0;
 $db = new Database();
 $servers = new Servers($db);
@@ -17,8 +18,9 @@ if (isset($_GET['id'])) {
         $titulli = $_POST['titulli'];
         $pershkrimi = $_POST['pershkrimi'];
         $cmimi = $_POST['cmimi'];
+        $foto = $_POST['foto'];
 
-        $servers->updateServer($id, $titulli, $pershkrimi, $cmimi);
+        $servers->updateServer($id, $titulli, $pershkrimi, $cmimi, $foto);
 
         header('Location: servers.php');
         exit();
@@ -59,7 +61,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
         <div class="articels width65">
-            <div class="serveritem">
+            
                 <form method="post" name="ndryshoserver" class="kotaktforma" action="">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
@@ -72,9 +74,12 @@ if (isset($_GET['id'])) {
                         <input class="form-control"  type="text" name="cmimi" value="<?php echo $existingServers['Cmimi']; ?>" required>
                         <p class="fomrerror" id="emailgabim"></p>
                     </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto"  value="<?php echo $existingServers['foto']; ?>" required>
+                    </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
                 </form>
-            </div>
+          
         </div>
         <?php include "../footer.php" ?>
     </div>

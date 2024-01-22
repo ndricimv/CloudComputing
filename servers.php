@@ -1,8 +1,12 @@
 <?php
 include_once 'assets/config/config.php';
-include_once 'assets/config/functions.php';
+include_once 'assets/config/servers.php';
 include_once 'assets/config/menu.php';
-$pageid=2;
+$pageid = 2;
+$db = new Database();
+$servers = new Servers($db);
+
+$allServers = $servers->readAllServers();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,114 +23,22 @@ $pageid=2;
         <div class="pastro"></div>
         <div class="feature">
             <div class="serversdiv width80">
+            <?php foreach ($allServers as $server): ?>
                 <div class="serveritem">
 
-                    <img src="assets/imgs/icon1.png" alt="">
-                    <h2>Dedicated Servers</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <img src="<?php echo $server['foto']; ?>" alt="">
+                    <h2><?php echo $server['Titulli']; ?></h2>
+                    <p><?php echo $server['Pershkrimi']; ?></p>
                     <p class="fcmimi">
                         <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
+                        <span class="num" style="display: inline-block;"><?php echo $server['Cmimi']; ?></span><span>€</span>
                     </p>
                     <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
 
                 </div>
-                <div class="serveritem">
-                    <img src="assets/imgs/icon2.png" alt="">
-                    <h2>VPS</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from </span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
+            <?php endforeach; ?>   
 
-                </div>
-                <div class="serveritem">
-
-                    <img src="assets/imgs/icon3.png" alt="">
-
-                    <div class="clearfix" style="background-size: cover;"></div>
-                    <h2>Shared Hosting</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-                </div>
-                <div class="serveritem">
-
-                    <img src="assets/imgs/icon1.png" alt="">
-                    <h2>Dedicated Servers</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-
-                </div>
-                <div class="serveritem">
-                    <img src="assets/imgs/icon2.png" alt="">
-                    <h2>VPS</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from </span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-
-                </div>
-                <div class="serveritem">
-
-                    <img src="assets/imgs/icon3.png" alt="">
-
-                    <div class="clearfix" style="background-size: cover;"></div>
-                    <h2>Shared Hosting</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-                </div>
-                <div class="serveritem">
-
-                    <img src="assets/imgs/icon1.png" alt="">
-                    <h2>Dedicated Servers</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-
-                </div>
-                <div class="serveritem">
-                    <img src="assets/imgs/icon2.png" alt="">
-                    <h2>VPS</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from </span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-
-                </div>
-                <div class="serveritem">
-
-                    <img src="assets/imgs/icon3.png" alt="">
-
-                    <div class="clearfix" style="background-size: cover;"></div>
-                    <h2>Shared Hosting</h2>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p class="fcmimi">
-                        <span>Start from</span>
-                        <span class="num" style="display: inline-block;">5.59</span><span>€</span>
-                    </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
-                </div>
+                
 
             </div>
         </div>
