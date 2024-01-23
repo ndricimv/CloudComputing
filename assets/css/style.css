@@ -369,7 +369,6 @@ header {
     width: 100%;
 }
 
-
 .articels{
     margin:auto;
     display: flex;
@@ -381,22 +380,25 @@ header {
 }
 
 .articel {
-    /* width: 31%;
-    height: auto;
-    border-style: none;
-    box-shadow: 0 0 28px -14px rgba(139.5,139.5,139.5,.5);
-    transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
-    --e-column-margin-right: 15px;
-    --e-column-margin-left: 0px;
-    margin: 40px 15px 0 0;
-    padding: 40px 20px 40px 20px; */
-
     flex: 0 0 auto;
     width: 33.33333333%;
     padding: 0 12px 0 12px;
     margin-bottom:30px;
 }
 
+.articel1 {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0 12px 0 12px;
+    margin-bottom:30px;
+}
+.articel a {
+    text-decoration: none;
+}
+.center-text {
+    text-align: center;
+    margin: auto;
+}
 
 .atitle{
     padding-bottom: 5px;
@@ -419,6 +421,14 @@ header {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
+    font-family: "Outfit", Helvetica, Arial, sans-serif;
+    color: #aeb3b6;
+    padding: 10px 10px 0 0;
+}
+.adescription1 {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
     font-family: "Outfit", Helvetica, Arial, sans-serif;
     color: #aeb3b6;
     padding: 10px 10px 0 0;
@@ -503,7 +513,9 @@ header {
     text-align: center;
     border: 1px solid #000 transparent;
     padding: 6px 12px;
+    margin: 5px auto 5px auto;
     box-shadow:  none !important;
+    display: block;
 }
 .btn-block{
     display: block;
@@ -526,6 +538,13 @@ header {
     text-decoration:none;
     background-color: #2e35b5;
     border-color: #25298f;
+}
+
+.btn-keq{
+    color: #fff;
+    text-decoration:none;
+    background-color: #bd0c0c;
+    border-color: #790303;
 }
 
 .breadcrumbs {
@@ -676,11 +695,15 @@ footer ul > li {
 	align-content: stretch;
     color: #fff;
 }
-
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
 table.serverat {
     width: 100%;
     height: 200px;
     text-align: center;
+    border-collapse: collapse;
   }
   table.serverat td, table.serverat th {
     border: 1px solid #FFFFFF;

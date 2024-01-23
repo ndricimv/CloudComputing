@@ -3,8 +3,10 @@ include_once 'assets/config/config.php';
 include_once 'assets/config/functions.php';
 include_once 'assets/config/news.php';
 include_once 'assets/config/menu.php';
+include_once 'assets/config/user.php';
 $pageid=3;
 $db = new Database();
+$user = new User($db);
 $news = new News($db);
 
 if (isset($_GET['id'])) {

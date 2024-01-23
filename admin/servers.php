@@ -3,9 +3,10 @@ include_once '../assets/config/config.php';
 include_once '../assets/config/servers.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
-include_once '../assets/config/user.php';
 $db = new Database();
 $user = new User($db);
+$servers = new Servers($db);
+$allServers = $servers->readAllServers();
 
 session_start();
 if ($_SESSION['user_id']) {
@@ -13,20 +14,15 @@ if ($_SESSION['user_id']) {
     $user_role = $user->checkUserRole($user_id);
 
     if ($user_role === 'admin') {
-       echo "admin";
     } else {
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
-} else {
-    header('Location: ../login.php');
-    exit();
-}
-
+    } else {
+        header('Location: ../login.php');
+        exit();
+    }
 $pageid = 0;
-$servers = new Servers($db);
-$allServers = $servers->readAllServers();
-
 ?>
 
 <!DOCTYPE html>

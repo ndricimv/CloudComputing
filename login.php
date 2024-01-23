@@ -2,34 +2,28 @@
 include_once 'assets/config/config.php';
 include_once 'assets/config/servers.php';
 include_once 'assets/config/user.php';
-
 $pageid = 0;
 $db = new Database();
 $user = new User($db);
-
 if($_SERVER['REQUEST_METHOD'] === "POST"){ 
     if (isset($_POST["login"])) {
-        // Kontrollo nese forma eshte derguar
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['shfrytezuesi'];
             $password = $_POST['fjalekalimil'];
 
-            // Kontrollo te dhenat e hyrjes
             $user_id = $user->authenticateUser($username, $password);
 
             if ($user_id) {
-                // Nese autentikimi eshte i suksesshem, krijo sesion dhe ridrejto
                 session_start();
                 $_SESSION['user_id'] = $user_id;
-                header('Location: /CloudComputing/admin/servers.php');
+                header('Location: /CloudComputing/admin/dashboard.php');
                 exit();
             } else {
-                // Nese autentikimi deshton, shfaq mesazh
                 $error_message = "Shfrytezuesi ose fjalekalimi gabim!";
             }
         }
     } elseif (isset($_POST["register"])) {
-        // Kontrollo nese forma eshte derguar
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $emri = $_POST['emri'];
             $mbiemri = $_POST['mbiemri'];
@@ -37,33 +31,23 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $username = $_POST['email'];
             $password = $_POST['fjalekalimi'];
             $confirm_password = $_POST['pfjalekalimi'];
-            
 
-            // Validimi i te dhenave ne front-end mund te behet ne JavaScript,
-            // por eshte gjithashtu e rendesishme te validohen edhe ne back-end.
-
-            // Kontrollo nese fjalëkalimet përputhen
             if ($password !== $confirm_password) {
                 $error_message = "Fjalekalimi nuk perputher, provo perseri!";
             } else {
-                // Hash fjalëkalimin
-                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-                // Shto përdoruesin në bazën e të dhënave
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
                 $result = $user->registerUser($emri, $mbiemri,$username, $hashed_password, $email);
 
                 if ($result) {
-                    // Nëse regjistrimi është i suksesshëm, ridrejto në faqen e hyrjes
                     header('Location: sukseshem.php');
                     exit();
                 } else {
-                    // Nëse ka ndonjë problem, shfaq mesazh gabimi
                     $error_message = "Regjistrimi deshtoj, provo perseri!";
                 }
             }
         }
     } else {
-        // throw an error page/message
         die(" >>> 400: Bad Request");
     }
 }
@@ -80,14 +64,14 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     <div class="login-page">
         <div class="login">
             <div class="loginheader">
-                <a href="index.html"><img src="assets/imgs/logo.png" /></a>
+                <a href="index.php"><img src="assets/imgs/logo.png" /></a>
                 <div class="atitle"><h2>Login to Managment Dashboard</h2></div>
             </div>
-            <?php if (isset($error_message)): ?>
-                <p style="color: red;"><?php echo $error_message; ?></p>
-            <?php endif; ?>
             <div class="loginform" id="loginform">
                 <form name="loginforma" action="" onsubmit="return validimiforml()" method="post" id="login">
+                    <?php if (isset($error_message)): ?>
+                        <p style="margin:20px 0 20px 0; color: red;"><?php echo $error_message; ?></p>
+                    <?php endif; ?>
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu kycur</p>
                     <div class="form-group">
                         <input class="form-control" type="text" placeholder="Shfrytezuesi" name="shfrytezuesi" id="shfrytezuesi">

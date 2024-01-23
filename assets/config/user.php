@@ -5,7 +5,6 @@ class User {
     public function __construct($db) {
         $this->db = $db;
     }
-
     // Kontrollo rolin e përdoruesit bazuar në ID
     public function checkUserRole($id) {
         $query = "SELECT role FROM users WHERE id = $id";
@@ -15,14 +14,12 @@ class User {
             $user = $result->fetch_assoc();
             return $user['role'];
         }
-
         return false;
     }
 
     // Autentiko përdoruesin bazuar në emër dhe fjalëkalim
     public function authenticateUser($username, $password) {
         $hashed_password = $this->getHashedPassword($username);
-
         if ($hashed_password && password_verify($password, $hashed_password)) {
             $query = "SELECT id FROM users WHERE username = '$username'";
             $result = $this->db->conn->query($query);
@@ -32,7 +29,6 @@ class User {
                 return $user['id'];
             }
         }
-
         return false;
     }
 
@@ -45,7 +41,6 @@ class User {
             $user = $result->fetch_assoc();
             return $user['password'];
         }
-
         return false;
     }
 

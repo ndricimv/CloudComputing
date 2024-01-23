@@ -1,11 +1,10 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/servers.php';
 include_once '../assets/config/menu.php';
-include_once '../assets/config/news.php';
 include_once '../assets/config/user.php';
-$pageid=0;
+include_once '../assets/config/user.php';
 $db = new Database();
-$news = new News($db);
 $user = new User($db);
 session_start();
 if ($_SESSION['user_id']) {
@@ -21,24 +20,9 @@ if ($_SESSION['user_id']) {
         header('Location: ../login.php');
         exit();
     }
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-    $existingNews = $news->readNews($id);
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        $news->deleteNews($id);
-
-        header('Location: news.php');
-        exit();
-    }
-} else {
-    header('Location: news.php');
-    exit();
-}
+$pageid = 0;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,21 +36,18 @@ if (isset($_GET['id'])) {
 <body>
     <div class="container front-page">
         <?php include "../header.php" ?>            
-
-        <div class="articels width65">
-            <div class="width65 center-text">
-                <h1>Fshi Lajmin</h1>
-                <p>A jeni i sigurt qe deshironi te fshini kete lajme!?</p>
-                <strong><?php echo $existingNews['Titulli']; ?></strong><br>
-                <p><?php echo $existingNews['Pershkrimi']; ?></p>
-                <p>Date: <?php echo $existingNews['Data']; ?> </p>
-                <form method="post" action="">
-                    <button class="btn btn-rreth btn-mir center-text" type="submit">Po, Fshi</button>
-                </form>
-                <p><a class="btn btn-rreth btn-keq center-text" href="servers.php">Anulo</a></p>
-            </div>            
-        
+        <div class="pastro"></div>
+        <div class="feature">
+            <div class="featurediv width65">
+                
+            </div>
         </div>
+        <div class="articels width65">
+            <div class="table-wrapper">
+                
+            </div>
+        </div>
+
         <?php include "../footer.php" ?>
     </div>
     <script src="../assets/js/scripts.js"></script>

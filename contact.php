@@ -1,7 +1,9 @@
 <?php
 include_once 'assets/config/config.php';
-include_once 'assets/config/functions.php';
 include_once 'assets/config/menu.php';
+include_once 'assets/config/user.php';
+$db = new Database();
+$user = new User($db);
 $pageid = 4;
 ?>
 <!DOCTYPE html>

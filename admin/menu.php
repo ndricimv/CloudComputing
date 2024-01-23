@@ -1,11 +1,26 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/menu.php';
-$pageid = 0;
+include_once '../assets/config/user.php';
 $db = new Database();
+$user = new User($db);
 $menu = new Menu($db);
-
 $allMenu = $menu->readAllMenu();
+session_start();
+if ($_SESSION['user_id']) {
+    $user_id = $_SESSION['user_id'];
+    $user_role = $user->checkUserRole($user_id);
+
+    if ($user_role === 'admin') {
+    } else {
+        header('Location: ../index.php');
+        exit();
+    }
+    } else {
+        header('Location: ../login.php');
+        exit();
+    }
+$pageid = 0;
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,13 @@
 <?php
 include_once 'assets/config/config.php';
 include_once 'assets/config/functions.php';
+include_once 'assets/config/news.php';
 include_once 'assets/config/menu.php';
 $pageid=3;
+$db = new Database();
+$news = new News($db);
+
+$allNews = $news->readAllNews();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,36 +23,15 @@ $pageid=3;
         <?php include "header.php" ?> 
         <div class="pastro"></div>
         <div class="news width80">
-            <div class="articel">
-                <div class="atitle"><h2>Articel 1</h2></div>
-                <div class="aimage"><img src="assets/imgs/1.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
-            <div class="articel">
-                <div class="atitle"><h2>Articel 2</h2></div>
-                <div class="aimage"><img src="assets/imgs/2.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
-            <div class="articel">
-                <div class="atitle"><h2>Articel 3</h2></div>
-                <div class="aimage"><img src="assets/imgs/3.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
-            <div class="articel">
-                <div class="atitle"><h2>Articel 4</h2></div>
-                <div class="aimage"><img src="assets/imgs/4.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
-            <div class="articel">
-                <div class="atitle"><h2>Articel 5</h2></div>
-                <div class="aimage"><img src="assets/imgs/5.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
-            <div class="articel">
-                <div class="atitle"><h2>Articel 5</h2></div>
-                <div class="aimage"><img src="assets/imgs/6.jpg" alt="Aricel 1"></div>
-                <div class="adescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
-            </div>
+            <?php foreach ($allNews as $news): ?>
+                <div class="articel">
+                    <a href="news_1.php?id=<?php echo $news['id']; ?>">
+                        <div class="atitle"><h2><?php echo $news['Titulli']; ?></h2></div>
+                        <div class="aimage"><img src="<?php echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
+                        <div class="adescription"><p><?php echo $news['Pershkrimi']; ?></p></div>
+                    </a>
+                </div>
+            <?php endforeach; ?>   
         </div>
 
         <?php include "footer.php" ?>
