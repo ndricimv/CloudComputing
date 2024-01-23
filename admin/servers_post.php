@@ -4,7 +4,7 @@ include_once '../assets/config/servers.php';
 include_once '../assets/config/menu.php';
 $pageid = 0;
 $db = new Database();
-$news = new Servers($db);
+$servers = new Servers($db);
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,7 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cmimi = $_POST['cmimi'];
     $foto = $_POST['foto'];
 
-    $news->createServer($titulli, $pershkrimi, $cmimi, $foto);
+    $servers->createServer($titulli, $pershkrimi, $cmimi, $foto);
+
+    header('Location: servers.php');
+    exit();
 }
 ?>
 
@@ -34,37 +37,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="featurediv width65">
                 <div class="featureitem">
                 <h2>Shto Server</h2>
-
-                
-
                     <img src="../assets/imgs/icon1.png" alt="">
                     <a class="btn btn-block btn-mir" href="servers.php">Lisa e Serverve</a>
-
                 </div>
-                
-
             </div>
         </div>
         <div class="articels width65">
-
-
-        <form method="post" name="shtoserver" class="kotaktforma" action="">
-                        <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control"  name="pershkrimi" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control"  type="text" name="cmimi" required>
-                            <p class="fomrerror" id="emailgabim"></p>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto" required>
-                        </div>
-                        <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
-                    </form>
+            <div class="width80">
+                <form method="post" name="shtoserver" class="kotaktforma" action="">
+                    <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control"  name="pershkrimi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"  type="text" placeholder="Cmimi" name="cmimi" required>
+                        <p class="fomrerror" id="emailgabim"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto" required>
+                    </div>
+                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
+                </form>
+            </div>
         </div>
         <?php include "../footer.php" ?>
     </div>

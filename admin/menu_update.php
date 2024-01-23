@@ -5,14 +5,10 @@ $pageid = 0;
 $db = new Database();
 $menu = new Menu($db);
 
-
 if (isset($_GET['id'])) {
+
     $id = $_GET['id'];
-
-    
     $existingMenu = $menu->readMenu($id);
-
-    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $emri = $_POST['titulli'];
         $vlera = $_POST['pershkrimi'];
@@ -24,12 +20,10 @@ if (isset($_GET['id'])) {
         exit();
     }
 } else {
-
     header('Location: menu.php');
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,19 +41,13 @@ if (isset($_GET['id'])) {
             <div class="featurediv width65">
                 <div class="featureitem">
                 <h2>Shto Server</h2>
-
-                
-
                     <img src="../assets/imgs/icon1.png" alt="">
                     <a class="btn btn-block btn-mir" href="servers.php">Lisa e Serverve</a>
-
                 </div>
-                
-
             </div>
         </div>
         <div class="articels width65">
-            <div class="serveritem">
+            <div class="width80">
                 <form method="post" name="ndryshoserver" class="kotaktforma" action="">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">

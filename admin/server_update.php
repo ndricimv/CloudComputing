@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
         <div class="articels width65">
-            
+            <div class="width80">
                 <form method="post" name="ndryshoserver" class="kotaktforma" action="">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
@@ -79,7 +79,7 @@ if (isset($_GET['id'])) {
                     </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
                 </form>
-          
+            </div>
         </div>
         <?php include "../footer.php" ?>
     </div>

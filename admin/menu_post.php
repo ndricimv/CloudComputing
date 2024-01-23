@@ -10,8 +10,12 @@ $menu = new Menu($db);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emri = $_POST['titulli'];
     $vlera = $_POST['pershkrimi'];
+    $renditja = $_POST['renditja'];
 
-    $menu->createMenu($emri, $vlera);
+    $menu->createMenu($emri, $vlera, $renditja);
+
+    header('Location: menu.php');
+    exit();
 }
 ?>
 
@@ -32,30 +36,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="featurediv width65">
                 <div class="featureitem">
                 <h2>Shto Server</h2>
-
-                
-
                     <img src="../assets/imgs/icon1.png" alt="">
                     <a class="btn btn-block btn-mir" href="menu.php">Lisa e Menuve</a>
-
                 </div>
-                
-
             </div>
         </div>
         <div class="articels width65">
-
-
-        <form method="post" name="shtoserver" class="kotaktforma" action="">
-                        <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control"  name="pershkrimi" required></textarea>
-                        </div>
-                        <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
-                    </form>
+            <div class="width80">
+                <form method="post" name="shtoserver" class="kotaktforma" action="">
+                    <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control"  name="pershkrimi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Renditja" name="renditja" id="renditja" required>
+                    </div>
+                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
+                </form>
+            </div>
         </div>
         <?php include "../footer.php" ?>
     </div>

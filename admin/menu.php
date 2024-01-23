@@ -32,34 +32,34 @@ $allMenu = $menu->readAllMenu();
             </div>
         </div>
         <div class="articels width65">
-        <table class="serverat">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Renditja</th>
-                    <th>Emri</th>
-                    <th>Pershkrimi</th>
-                    <th>Ndrysho</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($allMenu as $menu): ?>
-                <tr>
-                    <td><?php echo $menu['id']; ?></td>
-                    <td><?php echo $menu['renditja']; ?></td>
-                    <td><?php echo $menu['Emri']; ?></td>
-                
-                    <td><?php echo $menu['vlera']; ?></td>
-                    <td>
-                        <a class="btn btn-mir" href="menu_update.php?id=<?php echo $menu['id']; ?>">Ndrysho</a>
-                        <a class="btn btn-mir" href="menu_server.php?id=<?php echo $menu['id']; ?>">Fshi</a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            <tbody>
-        </table>
-            
-           
+            <div class="table-wrapper">
+                <table class="serverat">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Renditja</th>
+                            <th>Emri</th>
+                            <th>Pershkrimi</th>
+                            <th>Ndrysho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($allMenu as $menu): ?>
+                        <tr>
+                            <td><?php echo $menu['id']; ?></td>
+                            <td><?php echo $menu['renditja']; ?></td>
+                            <td><?php echo $menu['Emri']; ?></td>
+                        
+                            <td><?php echo $menu['vlera']; ?></td>
+                            <td>
+                                <a class="btn btn-mir" href="menu_update.php?id=<?php echo $menu['id']; ?>">Ndrysho</a>
+                                <a class="btn btn-keq" href="delete_menu.php?id=<?php echo $menu['id']; ?>">Fshi</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    <tbody>
+                </table>
+            </div>
         </div>
 
         <?php include "../footer.php" ?>

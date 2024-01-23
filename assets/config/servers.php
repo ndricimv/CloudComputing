@@ -24,6 +24,12 @@ class Servers {
         return $result->fetch_assoc();
     }
 
+    public function readServerFeature($id1, $id2, $id3) {
+        $query = "SELECT * FROM servers WHERE id in ($id1, $id2, $id3)";
+        $result = $this->db->conn->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function updateServer($id, $titulli, $pershkrimi, $cmimi, $foto) {
         $query = "UPDATE servers SET Titulli='$titulli', Pershkrimi='$pershkrimi', Cmimi='$cmimi', foto='$foto' WHERE id = $id";
         return $this->db->conn->query($query);

@@ -12,9 +12,9 @@ class Menu {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createMenu($emri, $vlera) {
+    public function createMenu($emri, $vlera, $renditja) {
         $date = date("Y-m-d H:i:s");
-        $query = "INSERT INTO menu (Emri, vlera) VALUES ('$emri', '$vlera')";
+        $query = "INSERT INTO menu (Emri, vlera, renditja) VALUES ('$emri', '$vlera', '$renditja')";
         return $this->db->conn->query($query);
     }
 
@@ -30,7 +30,7 @@ class Menu {
     }
 
     public function deleteMenu($id) {
-        $query = "DELETE FROM servers WHERE id = $id";
+        $query = "DELETE FROM menu WHERE id = $id";
         return $this->db->conn->query($query);
     }
 }

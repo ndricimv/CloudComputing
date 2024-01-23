@@ -4,7 +4,7 @@ session_start();
 function registerUser($username, $password, $role) {
     global $conn;
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO users (username, password, role) VALUES ('$username', '$hashedPassword', '$role')";
+    $query = "INSERT INTO users (emri, mbiemri, username, password, email, role) VALUES ('$emri','$mbiemri','$username', '$hashedPassword', '$email', '$role')";
     return mysqli_query($conn, $query);
 }
 
