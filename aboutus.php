@@ -1,33 +1,23 @@
 <?php
 include_once 'assets/config/config.php';
 include_once 'assets/config/functions.php';
-include_once 'assets/config/news.php';
+include_once 'assets/config/faqet.php';
 include_once 'assets/config/menu.php';
 include_once 'assets/config/user.php';
 $pageid=3;
 $db = new Database();
-$user = new User($db);
-$news = new News($db);
+$faqet = new Faqet($db);
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $oneNews = $news->readNews($id);
+$oneFaqe = $faqet->readFaqe(1);
 
-    if (!$oneNews) {
-        header("HTTP/1.0 404 Not Found");
-        exit();
-    }
-} else {
-    header('Location: news_page.php');
-    exit();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Computing - <?php echo $oneNews['Titulli']; ?></title>
+    <title>Cloud Computing - News</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -37,12 +27,14 @@ if (isset($_GET['id'])) {
         <div class="pastro"></div>
         <div class="news width80">
                 <div class="articel1">
-                    <div class="atitle"><h2><?php echo $oneNews['Titulli']; ?></h2></div>
-                    <div class="autori"><p><?php echo $oneNews['autori']; ?> - <?php echo date('d/m/Y H:i:s',strtotime($oneNews['Data'])); ?></p></div>
-                    <div class="aimage1"><img src="<?php echo $oneNews['foto']; ?>" alt="<?php echo $oneNews['Titulli']; ?>"></div>
-                    <div class="adescription1"><p><?php echo $oneNews['Pershkrimi']; ?></p></div>
+                    
+                        <div class="atitle"><h2><?php echo $oneFaqe['titulli']; ?></h2></div>
+                        <div class="aimage"><img src="<?php echo $oneFaqe['foto']; ?>" alt="<?php echo $oneFaqe['foto']; ?>"></div>
+                        <div class="adescription"><p><?php echo $oneFaqe['permbajtja']; ?></p></div>
+                  
                 </div>
         </div>
+
         <?php include "footer.php" ?>
     </div>
     <script src="assets/js/scripts.js"></script>
