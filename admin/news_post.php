@@ -11,7 +11,8 @@ session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
     $user_role = $user->checkUserRole($user_id);
-
+    $autor = $user->readAutori($user_id);
+    $autori = $autor['emri'];
     if ($user_role === 'admin') {
     } else {
         header('Location: ../index.php');
@@ -70,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control"  type="text" placeholder="Autori" name="autori" required>
+                        <input class="form-control"  type="text" placeholder="Autori" name="autori" value="<?php echo $autor['emri']; ?>" required>
                         <p class="fomrerror" id="emailgabim"></p>
                     </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
