@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 <div class="atitle"><h2>Login to Managment Dashboard</h2></div>
             </div>
             <div class="loginform" id="loginform">
-                <form name="loginforma" action="" onsubmit="return validimiforml()" method="post" id="login">
+                <form name="loginforma" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" id="login">
                     <?php if (isset($error_message)): ?>
                         <p style="margin:20px 0 20px 0; color: red;"><?php echo $error_message; ?></p>
                     <?php endif; ?>
@@ -81,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         <input class="form-control" type="password" placeholder="Fjalekalimi" name="fjalekalimil" id="fjalekalimil">
                         <p class="fomrerror" id="fjalekalimigabiml"></p>
                     </div>
-                    <button class="btn btn-mir btn-block" type="submit" name="login" onclick="return validimiforml()">Kycu</button>
+                    <button class="btn btn-mir btn-block" onclick="return validimiforml()" type="submit" name="login" >Kycu</button>
                     <a href="#" onclick="return registerform()" class="btn btn-thjesht btn-block" id="regjistrohu">Regjistrohu</a>
                 </form>
             </div>

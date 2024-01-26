@@ -310,6 +310,10 @@ header {
     text-align: center;
 }
 
+.serveritem img {
+    width: 128px;
+}
+
 @media screen and (max-width:980px) {
     .feature {
         margin: 50px 0 50px 0;
@@ -497,6 +501,7 @@ header {
 .form-group{
     margin-bottom: 15px;
 }
+
 .form-control{
     display: block;
     width: 100%;
@@ -674,6 +679,8 @@ address.s1 span i {
 
 
 
+
+
 footer {
     height: auto;
     padding: 20px;
@@ -724,3 +731,8 @@ table.serverat {
   table.serverat tfoot td {
     font-size: 14px;
   }
+
+
+  .fotoneforma{
+    width: 150px;
+}

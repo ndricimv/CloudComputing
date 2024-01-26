@@ -12,9 +12,9 @@ class Servers {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createServer($titulli, $pershkrimi, $cmimi, $foto) {
+    public function createServer($titulli, $pershkrimi, $cmimi, $foto, $autori) {
         $date = date("Y-m-d H:i:s");
-        $query = "INSERT INTO servers (Titulli, Pershkrimi, Data, Cmimi, foto) VALUES ('$titulli', '$pershkrimi', '$date', '$cmimi', '$foto')";
+        $query = "INSERT INTO servers (Titulli, Pershkrimi, Data, Cmimi, foto, autori) VALUES ('$titulli', '$pershkrimi', '$date', '$cmimi', '$foto', '$autori')";
         return $this->db->conn->query($query);
     }
 
@@ -30,8 +30,8 @@ class Servers {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function updateServer($id, $titulli, $pershkrimi, $cmimi, $foto) {
-        $query = "UPDATE servers SET Titulli='$titulli', Pershkrimi='$pershkrimi', Cmimi='$cmimi', foto='$foto' WHERE id = $id";
+    public function updateServer($id, $titulli, $pershkrimi, $cmimi, $foto, $autori) {
+        $query = "UPDATE servers SET Titulli='$titulli', Pershkrimi='$pershkrimi', Cmimi='$cmimi', foto='$foto', autori='$autori' WHERE id = $id";
         return $this->db->conn->query($query);
     }
 
@@ -39,5 +39,6 @@ class Servers {
         $query = "DELETE FROM servers WHERE id = $id";
         return $this->db->conn->query($query);
     }
+
 }
 ?>

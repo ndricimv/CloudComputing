@@ -2,10 +2,10 @@
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
 include_once '../assets/config/menu.php';
+include_once '../assets/config/news.php';
 include_once '../assets/config/user.php';
 $pageid=0;
 $db = new Database();
-$menu = new Menu($db);
 $user = new User($db);
 session_start();
 if ($_SESSION['user_id']) {
@@ -14,7 +14,7 @@ if ($_SESSION['user_id']) {
 
     if ($user_role === 'admin') {
     } else {
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit();
     }
     } else {
@@ -25,21 +25,20 @@ if ($_SESSION['user_id']) {
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $existingMenu = $menu->readMenu($id);
+    $existingUser = $user->readUser($id);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $menu->deleteMenu($id);
+        $user->deleteUser($id);
 
-        header('Location: menu.php');
+        header('Location: users.php');
         exit();
     }
 } else {
-    header('Location: menu.php');
+    header('Location: users.php');
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,13 +55,15 @@ if (isset($_GET['id'])) {
 
         <div class="articels width65">
             <div class="width65 center-text">
-                <h1>Fshi Menu</h1>
-                <p>A jeni i sigurt qe deshironi te fshini kete menu!?</p>
-                <strong><?php echo $existingMenu['Emri']; ?></strong><br>
+                <h1>Fshi Lajmin</h1>
+                <p>A jeni i sigurt qe deshironi te fshini kete lajme!?</p>
+                <strong><?php echo $existingUser['emri']; ?> <?php echo $existingUser['mbiemri']; ?></strong><br>
+                <p></p>
+                <p>Email: <?php echo $existingUser['email']; ?> </p>
                 <form method="post" action="">
                     <button class="btn btn-rreth btn-mir center-text" type="submit">Po, Fshi</button>
                 </form>
-                <p><a class="btn btn-rreth btn-keq center-text" href="menu.php">Anulo</a></p>
+                <p><a class="btn btn-rreth btn-keq center-text" href="users.php">Anulo</a></p>
             </div>            
         
         </div>

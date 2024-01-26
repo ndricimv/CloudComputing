@@ -1,5 +1,6 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/functions.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $db = new Database();
@@ -35,7 +36,7 @@ $pageid = 0;
 </head>
 <body>
     <div class="container front-page">
-        <?php include "../header.php" ?>            
+        <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
             <div class="featurediv width65">
@@ -55,6 +56,8 @@ $pageid = 0;
                             <th>Renditja</th>
                             <th>Emri</th>
                             <th>Pershkrimi</th>
+                            <th>Data</th>
+                            <th>Autori</th>
                             <th>Ndrysho</th>
                         </tr>
                     </thead>
@@ -64,8 +67,9 @@ $pageid = 0;
                             <td><?php echo $menu['id']; ?></td>
                             <td><?php echo $menu['renditja']; ?></td>
                             <td><?php echo $menu['Emri']; ?></td>
-                        
                             <td><?php echo $menu['vlera']; ?></td>
+                            <td><?php echo $menu['Data']; ?></td>
+                            <td><?php echo $menu['autori']; ?></td>
                             <td>
                                 <a class="btn btn-mir" href="menu_update.php?id=<?php echo $menu['id']; ?>">Ndrysho</a>
                                 <a class="btn btn-keq" href="delete_menu.php?id=<?php echo $menu['id']; ?>">Fshi</a>

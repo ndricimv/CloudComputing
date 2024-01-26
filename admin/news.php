@@ -1,5 +1,6 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/functions.php';
 include_once '../assets/config/News.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
@@ -37,7 +38,7 @@ $pageid = 0;
 </head>
 <body>
     <div class="container front-page">
-        <?php include "../header.php" ?>            
+        <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
             <div class="featurediv width65">
@@ -67,7 +68,8 @@ $pageid = 0;
                             <td><?php echo $news['id']; ?></td>
                             <td><?php echo $news['Titulli']; ?></td>
                         
-                            <td><?php echo $news['Pershkrimi']; ?></td>
+                            <td><?php echo mb_strimwidth($news['Pershkrimi'], 0, 220, '...');  ?>
+                        </td>
                             <td><?php echo $news['Data']; ?></td>
                             <td><?php echo $news['autori']; ?></td>
                             <td>

@@ -1,10 +1,28 @@
 <?php
 include_once 'assets/config/config.php';
+include_once 'assets/config/functions.php';
 include_once 'assets/config/menu.php';
 include_once 'assets/config/user.php';
+include_once 'assets/config/contacts.php';
 $db = new Database();
 $user = new User($db);
+$contacts = new Contacts($db);
 $pageid = 4;
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $emri = $_POST['emri'];
+    $mbiemri = $_POST['mbiemri'];
+    $email = $_POST['email'];
+    $mesazhi = $_POST['mesazhi'];
+
+    $contacts->createContact($emri, $mbiemri, $email, $mesazhi);
+
+    header('Location: contact.php');
+    exit();
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,24 +58,25 @@ $pageid = 4;
             <div class="contacta">
                 <div class="atitle"><h3>Dergo Email</h3></div>
                 <div class="kontaktforma">
-                    <form name="kontaktforma" class="kotaktforma" action="/kontakt" onsubmit="return validimikontakt()" method="post" id="kontaktforma">
+                    <form name="kontaktforma" class="kotaktforma"  method="post" id="kontaktforma">
                         <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                         <div class="form-group njerresht">
-                            <input class="form-control" type="text" placeholder="Emri" id="emri">
+                            <input class="form-control" type="text" placeholder="Emri" id="emri" name="emri">
                             <p class="fomrerror" id="emrigabim"></p>
                         </div>
                         <div class="form-group njerresht">
-                            <input class="form-control" type="text" placeholder="Mbiemri" id="mbiemri">
+                            <input class="form-control" type="text" placeholder="Mbiemri" id="mbiemri" name="mbiemri">
                             <p class="fomrerror" id="mbiemrigabim"></p>
                         </div>
                         <div class="form-group njerresht">
-                            <input class="form-control " type="text" placeholder="Email" id="email">
+                            <input class="form-control " type="text" placeholder="Email" id="email" name="email">
                             <p class="fomrerror" id="emailgabim"></p>
                         </div>
                         <div class="form-group ">
-                            <textarea class="form-control" type="text" placeholder="Mesazhi...."></textarea>
+                            <textarea class="form-control" type="text" placeholder="Mesazhi...." id="mesazhi" name="mesazhi"></textarea>
+                            <p class="fomrerror" id="mesazhigabim"></p>
                         </div>
-                        <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" onclick="return validimikontakt()">Dergo</button>
+                        <button class="btn btn-mir btn-block" onclick="return validimikontakt()" class="kotaktforma"   type="submit" name="submit">Dergo</button>
                     </form>
 
                 </div>

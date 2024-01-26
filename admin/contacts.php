@@ -1,12 +1,15 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
-include_once '../assets/config/servers.php';
+include_once '../assets/config/contacts.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $db = new Database();
 $user = new User($db);
+$contacts = new Contacts($db);
+$allContacts = $contacts->readAllContacts();
 $configs = new SiteConfigs($db);
+
 session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
@@ -39,13 +42,36 @@ $pageid = 0;
         <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
-            <div class="featurediv width65">
-                
-            </div>
+            
         </div>
         <div class="articels width65">
             <div class="table-wrapper">
-            Pershendetje <?php echo $user->readEmri('emri',$user_id) ." ". $user->readEmri('mbiemri',$user_id) ."<br> Data dhe Koha e Kycjes: <b>" . $date = date("Y-m-d H:i:s"). "</b>"; ?>
+                <table class="serverat">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Emri</th>
+                            <th>Mesazhi</th>
+                            <th>email</th>
+                            <th>Ndrysho</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($allContacts as $contact): ?>
+                        <tr>
+                            <td><?php echo $contact['id']; ?></td>
+                            <td><?php echo $contact['emri'] . ' ' .$contact['mbiemri'] ; ?></td>
+                        
+                            <td><?php echo $contact['message']; ?></td>
+                        
+                            <td><?php echo $contact['email']; ?></td>
+                            <td>
+                                <a class="btn btn-keq" href="delete_contacts.php?id=<?php echo $contact['id']; ?>">Fshi</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    <tbody>
+                </table>
             </div>
         </div>
 

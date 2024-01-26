@@ -7,8 +7,8 @@ include_once 'assets/config/user.php';
 $pageid=3;
 $db = new Database();
 $news = new News($db);
-
 $allNews = $news->readAllNews();
+$configs = new SiteConfigs($db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +28,9 @@ $allNews = $news->readAllNews();
                 <div class="articel">
                     <a href="news_1.php?id=<?php echo $news['id']; ?>">
                         <div class="atitle"><h2><?php echo $news['Titulli']; ?></h2></div>
-                        <div class="aimage"><img src="<?php echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
+                        <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
                         <div class="adescription"><p><?php echo $news['Pershkrimi']; ?></p></div>
+                        
                     </a>
                 </div>
             <?php endforeach; ?>   

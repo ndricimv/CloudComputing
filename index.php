@@ -7,23 +7,20 @@ include_once 'assets/config/news.php';
 include_once 'assets/config/user.php';
 $pageid=1;
 
+$user = new User($db);
+
 $db = new Database();
 $servers = new Servers($db);
 $news = new News($db);
 $allServers = $servers->readServerFeature(1,2,3);
 $allNews = $news->readAllNews();
-
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Computing</title>
+    <title><?php echo $configs->readConfig('EmriWebit'); ?></title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -42,7 +39,7 @@ $allNews = $news->readAllNews();
                             <span>Start from</span>
                             <span class="num" style="display: inline-block;"><?php echo $server['Cmimi']; ?></span><span>€</span>
                         </p>
-                        <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
+                        <a href="server_1.php?id=<?php echo $server['id']; ?>" class="btn btn-block btn-mir">Shiko</a>
                     </div>
                 <?php endforeach; ?>   
             </div>
@@ -51,7 +48,7 @@ $allNews = $news->readAllNews();
         <?php foreach ($allNews as $news): ?>
                 <div class="articel">
                     <div class="atitle"><h2><a href="news_1.php?id=<?php echo $news['id']; ?>"><?php echo $news['Titulli']; ?></a></h2></div>
-                    <div class="aimage"><img src="<?php echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
+                    <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
                     <div class="adescription"><p><?php echo $news['Pershkrimi']; ?></p></div>
                 </div>
             <?php endforeach; ?>   

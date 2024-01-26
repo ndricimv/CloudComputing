@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $db = new Database();
 $menu = new Menu($db);
 $allMenu = $menu->readAllMenu();
@@ -24,14 +24,12 @@ $user = new User($db);
                                     if (isset($_SESSION['user_id'])) {
                                         $user_id = $_SESSION['user_id'];
                                         $user_role = $user->checkUserRole($user_id);
-                                        $emri = '<p>Pershendetje ' .$user->readEmri('emri', $user_id) .'<p>';
-                                        $dashboard = '<p><a href="' . $configs->readConfig('url') . '/admin/dashboard.php">Dashboard</a></p>';
+                                        $emri = '<p>Pershendetje ' .$user->readEmri('emri',$user_id) .'<p>';
 
                                         $logout = '<p><a href="' . $configs->readConfig('url') . '/logout.php">Logout</a></p>';
 
                                         if ($user_role === 'admin') {
                                             echo $emri ;
-                                            echo $dashboard;
                                             echo $logout;
                                             
                                         } elseif ($user_role === 'user') {
@@ -57,13 +55,27 @@ $user = new User($db);
                 <div class="logo"><a href="<?php echo $configs->readConfig('url'); ?>"><img src="<?php echo $configs->readConfig('imgurl');?>/logow.png" /></a></div>
                 <div class="nav" id="navid">
                     <ul>
-                        <?php foreach ($allMenu as $menu): ?>
-                            <li><a href="<?php echo $configs->readConfig('url'); echo $menu['vlera']; ?>"><?php echo $menu['Emri']; ?></a></li>
-                            
-                        <?php endforeach; ?>
-                        <a href="javascript:void(0);" class="icon" onclick="navrespons()">
-                                <i class="fa fa-bars"></i>
-                            </a>
+                  
+                        
+                        <?php 
+                            if (isset($_SESSION['user_id'])) {
+                                $user_id = $_SESSION['user_id'];
+                                $user_role = $user->checkUserRole($user_id);
+
+                                if ($user_role === 'admin') {
+                                echo '<li><a href="'. $configs->readConfig('url').'/admin/servers.php">Servers</a></li>
+                                <li><a href="news.php">News</a></li>
+                                <li><a href="faqet.php">Abut US</a></li>
+                                <li><a href="contacts.php">Contact</a></li>
+                                <li><a href="users.php">Users</a></li>
+                                <li><a href="siteconfig.php">Site Congif</a></li>
+                                <li><a href="'. $configs->readConfig('url').'/admin/menu.php">Menus</a></li>';
+                                } else {
+                                
+                                }
+                            } 
+                        ?>
+                        
                
                     </ul>
                 </div>

@@ -28,7 +28,7 @@ var login = document.getElementById('loginform');
 
 /*Validimi i formes per login*/
 function validimiforml() {
-	let emriRegexl = /^[A-Z][a-z]+$/;
+	let emailRegexl = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
 	let passRegexl = /^[A-Z].*\d{3}$/;
 
 
@@ -40,13 +40,13 @@ function validimiforml() {
 	shfrytezuesigabim.innerText = '';
 	fjalekalimigabiml.innerText = '';
 
-	if (!emriRegexl.test(shfrytezuesi)) {
-		shfrytezuesigabim.innerText = "Emri gabim duhet filluar me shkronje te madhe";
-		return;
+	if (!emailRegexl.test(shfrytezuesi)) {
+		shfrytezuesigabim.innerText = "Email adresa gabim nuk ka formatin standard abc@abc.com";
+		return false;
 	};
 	if (!passRegexl.test(fjalekalimil)) {
 		fjalekalimigabiml.innerText = "Fjalekalimi nuk permban karakteret e lejuari psh. P@assw0r123";
-		return;
+		return false;
 	};
 	return true;
 }
@@ -74,56 +74,146 @@ function validimiform(){
 	
 	if(!emriRegex.test(emri)){
 		emrigabim.innerText = "Emri gabim duhet filluar me shkronje te madhe";
-		return;
+		return false;
 	};
 	if(!emriRegex.test(mbiemri)){
 		mbiemrigabim.innerText = "Mbiemri gabim duhet filluar me shkronje te madhe";
-		return;
+		return false;
 	};
 	if(!emailRegex.test(email)){
 		emailgabim.innerText = "Email adresa gabim nuk ka formatin standard abc@abc.com";
-		return;
+		return false;
 	};
 	if (!passRegex.test(fjalekalimi)){
 		fjalekalimigabim.innerText = "Fjalekalimi nuk permban karakteret e lejuari psh. P@assw0r123";
-		return;
-	};
+		return false;
+	}
 	return true;
 }
 
 /*Validimi i formes per kontakt*/
 function validimikontakt() {
-	let emriRegex = /^[A-Z][a-z]+$/;
-	let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
-	let passRegex = /^[A-Z].*\d{3}$/;
 
+    let emriRegex = /^[A-Z][a-z]+$/;
+    let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
 
-	let emri = document.getElementById('emri').value;
-	let emrigabim = document.getElementById('emrigabim');
-	let mbiemri = document.getElementById('mbiemri').value;
-	let mbiemrigabim = document.getElementById('mbiemrigabim');
-	let email = document.getElementById('email').value;
-	let emailgabim = document.getElementById('emailgabim');
+    let emri = document.getElementById('emri').value;
+    let emrigabim = document.getElementById('emrigabim');
+    let mbiemri = document.getElementById('mbiemri').value;
+    let mbiemrigabim = document.getElementById('mbiemrigabim');
+    let email = document.getElementById('email').value;
+    let emailgabim = document.getElementById('emailgabim');
+	let mesazhi = document.getElementById('mesazhi').value;
 
-	emrigabim.innerText = '';
-	mbiemrigabim.innerText = '';
-	emailgabim.innerText = '';
+    emrigabim.innerText = '';
+    mbiemrigabim.innerText = '';
+    emailgabim.innerText = '';
+	mesazhigabim.innerText = '';
 
-	if (!emriRegex.test(emri)) {
-		emrigabim.innerText = "Emri gabim duhet filluar me shkronje te madhe";
-		return;
-	};
-	if (!emriRegex.test(mbiemri)) {
-		mbiemrigabim.innerText = "Mbiemri gabim duhet filluar me shkronje te madhe";
-		return;
-	};
-	if (!emailRegex.test(email)) {
-		emailgabim.innerText = "Email adresa gabim nuk ka formatin standard abc@abc.com";
-		return;
-	};
+    if (!emriRegex.test(emri)) {
+        emrigabim.innerText = "Emri gabim, duhet filluar me shkronjë të madhe.";
+        return false;
+    }
 
-	return true;
+    if (!emriRegex.test(mbiemri)) {
+        mbiemrigabim.innerText = "Mbiemri gabim, duhet filluar me shkronjë të madhe.";
+        return false;
+	}
+
+    if (!emailRegex.test(email)) {
+         emailgabim.innerText = "Email adresa gabim, nuk ka formatin standard abc@abc.com.";
+         return false;
+    }
+
+    if (mesazhi.length < 5) {
+         mesazhigabim.innerText = "Mesazhi duhet te jete me i gjat se 5 karaktere";
+         return false;
+    }
+
+    return true;
 }
+
+
+/*Validimi i formes per server*/
+function shtoserverv() {
+
+    let titulliRegex = /^[A-Za-z0-9\s]+$/;
+	let cmimiRegex = /^\d+(\.\d{1,2})?$/;
+	let fotoRegex = /^.*\.(jpg|jpeg|png)$/;
+
+    let titulli = document.getElementById('titulli').value;
+    let titulligabim = document.getElementById('titulligabim');
+    //let pershkrimi = document.getElementById('pershkrimi').value;
+    //let pershkrimigabim = document.getElementById('pershkrimigabim');
+    let cmimi = document.getElementById('cmimi').value;
+    let cmimigabim = document.getElementById('cmimigabim');
+	let foto = document.getElementById('foto').value;
+    let fotogabim = document.getElementById('fotogabim');
+
+    titulligabim.innerText = '';
+    //pershkrimigabim.innerText = '';
+    cmimigabim.innerText = '';
+	fotogabim.innerText = '';
+
+    if (!titulliRegex.test(titulli)) {
+        titulligabim.innerText = "Titulli nuk permban formatin e lejuar Text, hapesir, numer.";
+        return false;
+    }
+
+    //if (!titulliRegex.test(pershkrimi) || (pershkrimi.length < 5)) {
+    //    pershkrimigabim.innerText = "Pershkrimi nuk permban formatin e lejuar Text, hapesir, numer dhe me shume se 5 karaktere.";
+    //    return false;
+	//}
+
+    if (!cmimiRegex.test(cmimi)) {
+		cmimigabim.innerText = "Cmimi nuk perban formatin e lejuat vetem numer.";
+         return false;
+    }
+
+	if (!fotoRegex.test(foto)) {
+		fotogabim.innerText = "Formati i fotos nuk eshe i lejuar perdor png, jpeg, jpg.";
+         return false;
+    }
+
+    return true;
+}
+
+
+/*Validimi i formes per lajme*/
+function shtolajmv() {
+
+    let titulliRegex = /^[a-zA-Z0-9\s\W]+$/;
+	let fotoRegex = /^.*\.(jpg|jpeg|png)$/;
+
+    let titulli = document.getElementById('titulli').value;
+    let titulligabim = document.getElementById('titulligabim');
+	let pershkrimi = document.getElementById('pershkrimi').value;
+    let pershkrimigabim = document.getElementById('pershkrimigabim');
+	let foto = document.getElementById('foto').value;
+    let fotogabim = document.getElementById('fotogabim');
+
+    titulligabim.innerText = '';
+	pershkrimigabim.innerText = '';
+	fotogabim.innerText = '';
+
+    if (!titulliRegex.test(titulli)) {
+        titulligabim.innerText = "Titulli nuk permban formatin e lejuar Text, hapesir, numer.";
+        return false;
+    }
+
+    if (!titulliRegex.test(pershkrimi) || (pershkrimi.length < 5)) {
+        pershkrimigabim.innerText = "Pershkrimi nuk permban formatin e lejuar Text, hapesir, numer dhe me shume se 5 karaktere.";
+        return false;
+	}
+
+	if (!fotoRegex.test(foto)) {
+		fotogabim.innerText = "Formati i fotos nuk eshe i lejuar perdor png, jpeg, jpg.";
+         return false;
+    }
+
+    return true;
+}
+
 	
 
 /*Slideri*/

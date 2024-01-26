@@ -27,11 +27,9 @@ $oneFaqe = $faqet->readFaqe(1);
         <div class="pastro"></div>
         <div class="news width80">
                 <div class="articel1">
-                    
                         <div class="atitle"><h2><?php echo $oneFaqe['titulli']; ?></h2></div>
-                        <div class="aimage"><img src="<?php echo $oneFaqe['foto']; ?>" alt="<?php echo $oneFaqe['foto']; ?>"></div>
+                        <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $oneFaqe['foto']; ?>" alt="<?php echo $oneFaqe['foto']; ?>"></div>
                         <div class="adescription"><p><?php echo $oneFaqe['permbajtja']; ?></p></div>
-                  
                 </div>
         </div>
 

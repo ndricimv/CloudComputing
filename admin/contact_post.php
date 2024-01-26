@@ -1,17 +1,17 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
+include_once '../assets/config/contacs.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $pageid = 0;
 $db = new Database();
 $user = new User($db);
-$menu = new Menu($db);
+$contacts = new Contacts($db);
 session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
     $user_role = $user->checkUserRole($user_id);
-    $autor = $user->readEmri('emri',$user_id);
 
     if ($user_role === 'admin') {
     } else {
@@ -23,26 +23,19 @@ if ($_SESSION['user_id']) {
         exit();
     }
 
-if (isset($_GET['id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $emri = $_POST['emri'];
+    $mbiemri = $_POST['mbiemri'];
+    $email = $_POST['email'];
+    $mesazhi = $_POST['mesazhi'];
 
-    $id = $_GET['id'];
-    $existingMenu = $menu->readMenu($id);
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $emri = $_POST['titulli'];
-        $vlera = $_POST['pershkrimi'];
-        $renditja = $_POST['renditja'];
-        $autori = $autor;
+    $servers->createContact($emri, $mbiemri, $email, $mesazhi);
 
-        $menu->updateMenu($id, $emri, $vlera, $renditja, $autori);
-
-        header('Location: menu.php');
-        exit();
-    }
-} else {
-    header('Location: menu.php');
+    header('Location: contacts.php');
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,16 +60,20 @@ if (isset($_GET['id'])) {
         </div>
         <div class="articels width65">
             <div class="width80">
-                <form method="post" name="ndryshoserver" class="kotaktforma" action="">
+                <form method="post" name="shtoserver" class="kotaktforma" action="">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli"  value="<?php echo $existingMenu['Emri']; ?>" required>
+                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Renditja" name="renditja" id="renditja"  value="<?php echo $existingMenu['renditja']; ?>" required>
+                        <textarea class="form-control"  name="pershkrimi" required></textarea>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control"  name="pershkrimi" required><?php echo $existingMenu['vlera']; ?></textarea>
+                        <input class="form-control"  type="text" placeholder="Cmimi" name="cmimi" required>
+                        <p class="fomrerror" id="emailgabim"></p>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Foto URL" name="foto" id="foto" required>
                     </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
                 </form>
@@ -86,6 +83,4 @@ if (isset($_GET['id'])) {
     </div>
     <script src="../assets/js/scripts.js"></script>
 </body>
-
 </html>
-

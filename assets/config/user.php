@@ -51,5 +51,46 @@ class User {
 
         return $result;
     }
+
+        // Kontrollo rolin e përdoruesit bazuar në ID
+        public function readEmri($emri, $id) {
+            $query = "SELECT $emri FROM users WHERE id = $id";
+            $result = $this->db->conn->query($query);
+    
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+                return $user[$emri];
+            }
+            return false;
+        }
+
+    public function readAllusers() {
+        $query = "SELECT * FROM users";
+        $result = $this->db->conn->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function readUser($id) {
+        $query = "SELECT * FROM users WHERE id = $id";
+        $result = $this->db->conn->query($query);
+        return $result->fetch_assoc();
+    }
+
+    public function readAutori($id) {
+        $query = "SELECT emri FROM users WHERE id = $id";
+        $result = $this->db->conn->query($query);
+        return $result->fetch_assoc();
+    }
+
+    public function updateUser($id, $emri, $mbiemri, $username, $email, $role) {
+        $query = "UPDATE users SET emri='$emri', mbiemri='$mbiemri', username='$username', email='$email', role='$role' WHERE id = $id";
+        return $this->db->conn->query($query);
+    }
+
+    public function deleteUser($id) {
+        $query = "DELETE FROM users WHERE id = $id";
+        return $this->db->conn->query($query);
+    }
+
 }
 ?>

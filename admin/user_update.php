@@ -1,17 +1,16 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
+include_once '../assets/config/news.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $pageid = 0;
 $db = new Database();
 $user = new User($db);
-$menu = new Menu($db);
 session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
     $user_role = $user->checkUserRole($user_id);
-    $autor = $user->readEmri('emri',$user_id);
 
     if ($user_role === 'admin') {
     } else {
@@ -24,25 +23,31 @@ if ($_SESSION['user_id']) {
     }
 
 if (isset($_GET['id'])) {
-
     $id = $_GET['id'];
-    $existingMenu = $menu->readMenu($id);
+
+    
+    $existingUser = $user->readUser($id);
+
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $emri = $_POST['titulli'];
-        $vlera = $_POST['pershkrimi'];
-        $renditja = $_POST['renditja'];
-        $autori = $autor;
+        $emri = $_POST['emri'];
+        $mbiemri = $_POST['mbiemri'];
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $role = $_POST['role'];
 
-        $menu->updateMenu($id, $emri, $vlera, $renditja, $autori);
+        $user->updateUser($id, $emri, $mbiemri, $username, $email, $role);
 
-        header('Location: menu.php');
+        header('Location: users.php');
         exit();
     }
 } else {
-    header('Location: menu.php');
+
+    header('Location: users.php');
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +66,7 @@ if (isset($_GET['id'])) {
                 <div class="featureitem">
                 <h2>Shto Server</h2>
                     <img src="../assets/imgs/icon1.png" alt="">
-                    <a class="btn btn-block btn-mir" href="servers.php">Lisa e Serverve</a>
+                    <a class="btn btn-block btn-mir" href="users.php">Lisa e Uservae</a>
                 </div>
             </div>
         </div>
@@ -70,13 +75,19 @@ if (isset($_GET['id'])) {
                 <form method="post" name="ndryshoserver" class="kotaktforma" action="">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli"  value="<?php echo $existingMenu['Emri']; ?>" required>
+                        <input class="form-control" type="text" placeholder="Emri" name="emri" id="emri"  value="<?php echo $existingUser['emri']; ?>" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Renditja" name="renditja" id="renditja"  value="<?php echo $existingMenu['renditja']; ?>" required>
+                        <input class="form-control"  type="text" placeholder="Mbiemri" name="mbiemri" id="mbiemri" value="<?php echo $existingUser['mbiemri']; ?>" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control"  name="pershkrimi" required><?php echo $existingMenu['vlera']; ?></textarea>
+                        <input class="form-control"  type="text" placeholder="Username" name="username" id="username" value="<?php echo $existingUser['username']; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"  type="text" placeholder="Email" name="email" id="email" value="<?php echo $existingUser['email']; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control"  type="text" placeholder="Roli" name="role" id="role" value="<?php echo $existingUser['role']; ?>" required>
                     </div>
                     <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
                 </form>

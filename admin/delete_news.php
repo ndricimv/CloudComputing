@@ -1,5 +1,6 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/functions.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/news.php';
 include_once '../assets/config/user.php';
@@ -51,7 +52,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <div class="container front-page">
-        <?php include "../header.php" ?>            
+        <?php include "header.php" ?>            
 
         <div class="articels width65">
             <div class="width65 center-text">

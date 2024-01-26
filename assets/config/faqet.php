@@ -12,9 +12,9 @@ class Faqet {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function createFaqe($titulli, $permbajtja, $foto, $autori) {
+    public function createFaqe($titulli, $permbajtja, $foto, $data, $autori) {
         $date = date("Y-m-d H:i:s");
-        $query = "INSERT INTO faqet (titulli, permbajtja, foto) VALUES ('$titulli', '$permbajtja','$foto')";
+        $query = "INSERT INTO faqet (titulli, permbajtja, foto, Data, autori) VALUES ('$titulli', '$permbajtja','$foto', '$data', '$autori')";
         return $this->db->conn->query($query);
     }
 
@@ -24,8 +24,9 @@ class Faqet {
         return $result->fetch_assoc();
     }
 
-    public function updateFaqe($id, $titulli, $permbajtja, $foto) {
-        $query = "UPDATE faqet SET Titulli='$titulli', permbajtja='$permbajtja', foto='$foto' WHERE id = $id";
+    public function updateFaqe($id, $titulli, $permbajtja, $foto, $autori) {
+        $date = date("Y-m-d H:i:s");
+        $query = "UPDATE faqet SET Titulli='$titulli', permbajtja='$permbajtja', foto='$foto', Data='$date', autori='$autori' WHERE id = $id";
         return $this->db->conn->query($query);
     }
 

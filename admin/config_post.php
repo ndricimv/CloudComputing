@@ -7,12 +7,11 @@ include_once '../assets/config/user.php';
 $pageid = 0;
 $db = new Database();
 $user = new User($db);
-$servers = new Servers($db);
+$configs = new SiteConfigs($db);
 session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
     $user_role = $user->checkUserRole($user_id);
-    $autor = $user->readEmri('emri',$user_id);
 
     if ($user_role === 'admin') {
     } else {
@@ -25,36 +24,12 @@ if ($_SESSION['user_id']) {
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $titulli = $_POST['titulli'];
-        $pershkrimi = $_POST['pershkrimi'];
-        $cmimi = $_POST['cmimi'];
-        $autori = $autor;
+        $emri = $_POST['titulli'];
+        $vlera = $_POST['pershkrimi'];
+            
+        $configs->createConfig($emri, $vlera);
 
-        if(isset($_FILES['foto'])){
-            $errors= array();
-            $foto = $_FILES['foto']['name'];
-            $file_tmp =$_FILES['foto']['tmp_name'];
-            $file_type=$_FILES['foto']['type'];
-            $per=explode('.',$_FILES['foto']['name']);
-            $file_ext=end($per);
-            
-            $extensions= array("jpeg","jpg","png");
-            
-            if(in_array($file_ext,$extensions)=== false){
-               $errors="Ku lloj i files nuk lejohet! Ju lutem perdorni vetem jpeg, jpg, png.";
-            }
-            
-            if(empty($errors)==true){
-               move_uploaded_file($file_tmp,"../assets/imgs/".$foto);
-            }else{
-               print_r($errors);
-               exit;
-            }
-         }
-            
-        $servers->createServer($titulli, $pershkrimi, $cmimi, $foto, $autori);
-
-        header('Location: servers.php');
+        header('Location: siteconfig.php');
         exit();
     }
 ?>
@@ -92,14 +67,6 @@ if ($_SESSION['user_id']) {
                     <div class="form-group">
                         <textarea class="form-control"  name="pershkrimi"  id="pershkrimi"></textarea>
                         <p class="fomrerror" id="pershkrimigabim"></p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control"  type="text" placeholder="Cmimi" name="cmimi" id="cmimi">
-                        <p class="fomrerror" id="cmimigabim"></p>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="file" id="foto" name="foto">
-                        <p class="fomrerror" id="fotogabim"></p>
                     </div>
                     <button class="btn btn-mir btn-block" onclick="return shtoserverv()" type="submit" name="submit" >Shto</button>
                 </form>

@@ -1,10 +1,13 @@
 <?php
 include_once 'assets/config/config.php';
+include_once 'assets/config/functions.php';
 include_once 'assets/config/servers.php';
 include_once 'assets/config/menu.php';
+include_once 'assets/config/user.php';
 $pageid = 2;
 $db = new Database();
 $servers = new Servers($db);
+$user = new user($db);
 
 $allServers = $servers->readAllServers();
 ?>
@@ -25,15 +28,15 @@ $allServers = $servers->readAllServers();
             <div class="serversdiv width80">
             <?php foreach ($allServers as $server): ?>
                 <div class="serveritem">
-
-                    <img src="<?php echo $server['foto']; ?>" alt="">
+                    <img src="<?php echo $configs->readConfig('imgurl'); echo $server['foto']; ?>" alt="">
                     <h2><?php echo $server['Titulli']; ?></h2>
                     <p><?php echo $server['Pershkrimi']; ?></p>
                     <p class="fcmimi">
                         <span>Start from</span>
                         <span class="num" style="display: inline-block;"><?php echo $server['Cmimi']; ?></span><span>€</span>
                     </p>
-                    <a href="login.html" class="btn btn-block btn-mir">Sign Up Now</a>
+                    <a href="server_1.php?id=<?php echo $server['id']; ?>" class="btn btn-block btn-mir">Shiko</a>
+                    <a href="porosit.php?id=<?php echo $server['id']; ?>" class="btn btn-block btn-mir">Porosit</a>
 
                 </div>
             <?php endforeach; ?>   

@@ -1,5 +1,6 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/functions.php';
 include_once '../assets/config/servers.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
@@ -7,6 +8,7 @@ $db = new Database();
 $user = new User($db);
 $servers = new Servers($db);
 $allServers = $servers->readAllServers();
+$configs = new SiteConfigs($db);
 
 session_start();
 if ($_SESSION['user_id']) {
@@ -37,7 +39,7 @@ $pageid = 0;
 </head>
 <body>
     <div class="container front-page">
-        <?php include "../header.php" ?>            
+        <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
             <div class="featurediv width65">
@@ -57,6 +59,7 @@ $pageid = 0;
                             <th>Emri</th>
                             <th>Pershkrimi</th>
                             <th>Cmimi</th>
+                            <th>Autori</th>
                             <th>Ndrysho</th>
                         </tr>
                     </thead>
@@ -69,6 +72,7 @@ $pageid = 0;
                             <td><?php echo $server['Pershkrimi']; ?></td>
                         
                             <td><?php echo $server['Cmimi']; ?>€</td>
+                            <td><?php echo $server['autori']; ?></td>
                             <td>
                                 <a class="btn btn-mir" href="server_update.php?id=<?php echo $server['id']; ?>">Ndrysho</a>
                                 <a class="btn btn-keq" href="delete_server.php?id=<?php echo $server['id']; ?>">Fshi</a>

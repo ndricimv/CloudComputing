@@ -1,5 +1,6 @@
 <?php
 include_once '../assets/config/config.php';
+include_once '../assets/config/functions.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $pageid = 0;
@@ -10,6 +11,7 @@ session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
     $user_role = $user->checkUserRole($user_id);
+    $autor = $user->readEmri('emri',$user_id);
 
     if ($user_role === 'admin') {
     } else {
@@ -26,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emri = $_POST['titulli'];
     $vlera = $_POST['pershkrimi'];
     $renditja = $_POST['renditja'];
+    $autori = $autor;
 
-    $menu->createMenu($emri, $vlera, $renditja);
+    $menu->createMenu($emri, $vlera, $renditja, $autori);
 
     header('Location: menu.php');
     exit();
@@ -45,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container front-page">
-        <?php include "../header.php" ?>            
+        <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
             <div class="featurediv width65">

@@ -1,14 +1,12 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
-include_once '../assets/config/faqet.php';
+include_once '../assets/config/News.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $db = new Database();
 $user = new User($db);
-$faqet = new Faqet($db);
-$allFaqet = $faqet->readAllFaqet();
-
+$allUsers = $user->readAllUsers();
 
 session_start();
 if ($_SESSION['user_id']) {
@@ -25,11 +23,6 @@ if ($_SESSION['user_id']) {
         exit();
     }
 $pageid = 0;
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -47,13 +40,7 @@ $pageid = 0;
         <?php include "header.php" ?>            
         <div class="pastro"></div>
         <div class="feature">
-            <div class="featurediv width65">
-                <div class="featureitem">
-                <h2>Shto Lajme</h2>
-                    <img src="../assets/imgs/icon1.png" alt="">
-                    <a class="btn btn-block btn-mir" href="news_post.php">Shto Lajme</a>
-                </div>
-            </div>
+
         </div>
         <div class="articels width65">
             <div class="table-wrapper">
@@ -61,24 +48,24 @@ $pageid = 0;
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Titulli</th>
-                            <th>Pershkrimi</th>
-                            <th>Data</th>
-                            <th>Autori</th>
+                            <th>Emri</th>
+                            <th>username</th>
+                            <th>Email</th>
+                            <th>Roli</th>
                             <th>Ndrysho</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($allFaqet as $faqe): ?>
+                        <?php foreach ($allUsers as $users): ?>
                         <tr>
-                            <td><?php echo $faqe['id']; ?></td>
-                            <td><?php echo $faqe['titulli']; ?></td>
-                        
-                            <td><?php echo mb_strimwidth($faqe['permbajtja'], 0, 220, '...'); ?></td>
-                            <td><?php echo $faqe['Data']; ?></td>
-                            <td><?php echo $faqe['autori']; ?></td>
+                            <td><?php echo $users['id']; ?></td>
+                            <td><?php echo $users['emri']; ?> <?php echo $users['mbiemri']; ?></td>
+                            <td><?php echo $users['username']; ?></td>
+                            <td><?php echo $users['email']; ?></td>
+                            <td><?php echo $users['role']; ?></td>
                             <td>
-                                <a class="btn btn-mir" href="faqet_update.php?id=<?php echo $faqe['id']; ?>">Ndrysho</a>
+                                <a class="btn btn-mir" href="user_update.php?id=<?php echo $users['id']; ?>">Ndrysho</a>
+                                <a class="btn btn-keq" href="delete_user.php?id=<?php echo $users['id']; ?>">Fshi</a>
                             </td>
                         </tr>
                         <?php endforeach; ?>
