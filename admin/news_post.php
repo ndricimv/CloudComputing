@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="feature">
             <div class="featurediv width65">
                 <div class="featureitem">
-                <h2>Shto Server</h2>
+                <h2>Shto Lajme</h2>
                     <img src="../assets/imgs/icon1.png" alt="">
                     <a class="btn btn-block btn-mir" href="news.php">Te gjitha Lajmet</a>
                 </div>
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <p class="fomrerror" id="titulligabim"></p>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="pershkrimi" id="pershkrimi"></textarea>
+                        <textarea style="height:400px;" class="form-control" name="pershkrimi" id="pershkrimi"></textarea>
                         <p class="fomrerror" id="pershkrimigabim"></p>
                     </div>
                     <div class="form-group">

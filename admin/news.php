@@ -68,8 +68,7 @@ $pageid = 0;
                             <td><?php echo $news['id']; ?></td>
                             <td><?php echo $news['Titulli']; ?></td>
                         
-                            <td><?php echo mb_strimwidth($news['Pershkrimi'], 0, 220, '...');  ?>
-                        </td>
+                            <td><?php echo mb_strimwidth($news['Pershkrimi'], 0, 220, '...');  ?></td>
                             <td><?php echo $news['Data']; ?></td>
                             <td><?php echo $news['autori']; ?></td>
                             <td>

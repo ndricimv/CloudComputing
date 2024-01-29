@@ -30,7 +30,7 @@ $allServers = $servers->readAllServers();
                 <div class="serveritem">
                     <img src="<?php echo $configs->readConfig('imgurl'); echo $server['foto']; ?>" alt="">
                     <h2><?php echo $server['Titulli']; ?></h2>
-                    <p><?php echo $server['Pershkrimi']; ?></p>
+                    <p><?php echo mb_strimwidth($server['Pershkrimi'], 0, 220, '...');  ?></p>
                     <p class="fcmimi">
                         <span>Start from</span>
                         <span class="num" style="display: inline-block;"><?php echo $server['Cmimi']; ?></span><span>€</span>

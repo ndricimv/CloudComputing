@@ -22,12 +22,18 @@ if ($_SESSION['user_id']) {
         exit();
     }
 
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
+    $existingUser = $user->readUser($id);   
     
-    $existingUser = $user->readUser($id);
-
+    if($existingUser['role'] == 'admin'){
+        $admin = 'checked';
+        $userr = '';
+    }else{
+        $admin = '';
+        $userr = 'checked';
+    }
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $emri = $_POST['emri'];
@@ -46,6 +52,8 @@ if (isset($_GET['id'])) {
     header('Location: users.php');
     exit();
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +64,7 @@ if (isset($_GET['id'])) {
     <title>Cloud Computing</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
     <div class="container front-page">
@@ -64,8 +73,8 @@ if (isset($_GET['id'])) {
         <div class="feature">
             <div class="featurediv width65">
                 <div class="featureitem">
-                <h2>Shto Server</h2>
-                    <img src="../assets/imgs/icon1.png" alt="">
+                <h2>Users</h2>
+                    <img src="../assets/imgs/users.png" alt="">
                     <a class="btn btn-block btn-mir" href="users.php">Lisa e Uservae</a>
                 </div>
             </div>
@@ -87,9 +96,16 @@ if (isset($_GET['id'])) {
                         <input class="form-control"  type="text" placeholder="Email" name="email" id="email" value="<?php echo $existingUser['email']; ?>" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control"  type="text" placeholder="Roli" name="role" id="role" value="<?php echo $existingUser['role']; ?>" required>
+                        
+                    <label for="admin">
+                        <input type="radio" value="admin" id="admin" name="role" <?php echo  $admin; ?>>
+                        Administrator
+                    </label><br>
+                        <label class="custom-radio" for="user">
+                        <input type="radio" value="user" id="user" name="role" <?php echo $userr; ?>>
+                        User</label>
                     </div>
-                    <button class="btn btn-mir btn-block" id="submit" type="submit" name="submit" >Shto</button>
+                    <button class="btn btn-mir btn-block"  id="submit" type="submit" name="submit" >Ruaj</button>
                 </form>
             </div>
         </div>

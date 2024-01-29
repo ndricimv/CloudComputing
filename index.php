@@ -34,7 +34,7 @@ $allNews = $news->readAllNews();
                     <div class="featureitem">
                         <img src="<?php echo $configs->readConfig('imgurl');  echo $server['foto']; ?>" alt="">
                         <h2><?php echo $server['Titulli']; ?></h2>
-                        <p><?php echo $server['Pershkrimi']; ?></p>
+                        <p><?php echo mb_strimwidth($server['Pershkrimi'], 0, 220, '...');  ?></p>
                         <p class="fcmimi">
                             <span>Start from</span>
                             <span class="num" style="display: inline-block;"><?php echo $server['Cmimi']; ?></span><span>€</span>
@@ -49,7 +49,7 @@ $allNews = $news->readAllNews();
                 <div class="articel">
                     <div class="atitle"><h2><a href="news_1.php?id=<?php echo $news['id']; ?>"><?php echo $news['Titulli']; ?></a></h2></div>
                     <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
-                    <div class="adescription"><p><?php echo $news['Pershkrimi']; ?></p></div>
+                    <div class="adescription"><p><?php echo mb_strimwidth($news['Pershkrimi'], 0, 220, '...');  ?></p></div>
                 </div>
             <?php endforeach; ?>   
         </div>

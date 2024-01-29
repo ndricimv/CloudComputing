@@ -1,13 +1,15 @@
 <?php
 include_once '../assets/config/config.php';
 include_once '../assets/config/functions.php';
-include_once '../assets/config/servers.php';
+include_once '../assets/config/porosi.php';
 include_once '../assets/config/menu.php';
 include_once '../assets/config/user.php';
 $db = new Database();
 $user = new User($db);
+$porosit = new Porosi($db);
+$allPorosit = $porosit->readAllPorosit();
 $configs = new SiteConfigs($db);
-$allConfigs = $configs->readAllConfigs();
+
 session_start();
 if ($_SESSION['user_id']) {
     $user_id = $_SESSION['user_id'];
@@ -23,6 +25,7 @@ if ($_SESSION['user_id']) {
         exit();
     }
 $pageid = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -41,11 +44,7 @@ $pageid = 0;
         <div class="pastro"></div>
         <div class="feature">
             <div class="featurediv width65">
-                <div class="featureitem">
-                <h2>Shto Config</h2>
-                    <img src="../assets/imgs/icon1.png" alt="">
-                    <a class="btn btn-block btn-mir" href="config_post.php">Shto Config</a>
-                </div>
+                
             </div>
         </div>
         <div class="articels width65">
@@ -54,21 +53,26 @@ $pageid = 0;
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Emri</th>
-                            <th>Vlera</th>
-                            <th>Ndrysho</th>
+                            <th>User ID</th>
+                            <th>Useri</th>
+                            <th>Server ID</th>
+                            <th>Serveri</th>
+                            <th>Pershkrimi</th>
+                            <th>Cmimi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($allConfigs as $configs): ?>
+                        <?php foreach ($allPorosit as $porosit): ?>
                         <tr>
-                            <td><?php echo $configs['id']; ?></td>
-                            <td><?php echo $configs['emri']; ?></td>
-                            <td><?php echo $configs['vlera']; ?></td>
-                            <td>
-                                <a class="btn btn-mir" href="config_update.php?id=<?php echo $configs['id']; ?>">Ndrysho</a>
-                                <a class="btn btn-keq" href="delete_config.php?id=<?php echo $configs['id']; ?>">Fshi</a>
-                            </td>
+                            <td><?php echo $porosit['id']; ?></td>
+                            <td><?php echo $porosit['uid']; ?></td>
+                            <td><?php echo $porosit['emri']; ?></td>
+                            <td><?php echo $porosit['sid']; ?></td>
+                            <td><?php echo $porosit['Titulli']; ?></td>
+                        
+                            <td><?php echo $porosit['Pershkrimi']; ?></td>
+                        
+                            <td><?php echo $porosit['Cmimi']; ?>€</td>
                         </tr>
                         <?php endforeach; ?>
                     <tbody>

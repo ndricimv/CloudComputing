@@ -7,7 +7,7 @@ class Contacts {
     }
 
     public function readAllContacts() {
-        $query = "SELECT * FROM contact_messages";
+        $query = "SELECT * FROM contact_messages ORDER BY id DESC";
         $result = $this->db->conn->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }

@@ -29,7 +29,7 @@ $configs = new SiteConfigs($db);
                     <a href="news_1.php?id=<?php echo $news['id']; ?>">
                         <div class="atitle"><h2><?php echo $news['Titulli']; ?></h2></div>
                         <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $news['foto']; ?>" alt="<?php echo $news['Titulli']; ?>"></div>
-                        <div class="adescription"><p><?php echo $news['Pershkrimi']; ?></p></div>
+                        <div class="adescription"><p><?php echo mb_strimwidth($news['Pershkrimi'], 0, 220, '...');  ?></p></div>
                         
                     </a>
                 </div>

@@ -7,7 +7,7 @@ class News {
     }
 
     public function readAllNews() {
-        $query = "SELECT * FROM news";
+        $query = "SELECT * FROM news ORDER BY id DESC";
         $result = $this->db->conn->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
