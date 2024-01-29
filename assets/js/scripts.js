@@ -240,3 +240,25 @@ function navrespons() {
 			x.className = "nav";
 		}
 	}
+
+
+function just2cat()
+{
+	var allInp = document.getElementsByTagName('input');
+	const MAX_CHECK_ = 3;
+	var nbChk =0;
+	for(var i= 0; i<allInp.length; i++)
+	{
+		if(allInp[i].type.toLowerCase()=='checkbox' && allInp[i].checked) 
+		{
+			nbChk++;
+
+			if(nbChk > MAX_CHECK_) 
+			{
+				alert("Maksimumi i zgjedhjeve eshte 3");
+				allInp[i].checked=false;
+			}
+
+		}
+	}
+}

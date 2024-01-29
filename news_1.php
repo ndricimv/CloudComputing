@@ -43,7 +43,7 @@ if (isset($_GET['id'])) {
                 <div class="articel1">
                     <div class="atitle"><h2><?php echo $oneNews['Titulli']; ?></h2></div>
                     <div class="autori"><p><?php echo $oneNews['autori']; ?> - <?php echo $oneNews['Data']; ?></p></div>
-                    <div class="aimage"><img src="<?php echo $configs->readConfig('imgurl'); echo $oneNews['foto']; ?>" alt="<?php echo $oneNews['Titulli']; ?>"></div>
+                    <div class="aimage1"><img src="<?php echo $configs->readConfig('imgurl'); echo $oneNews['foto']; ?>" alt="<?php echo $oneNews['Titulli']; ?>"></div>
                     <div class="adescription1"><p><?php echo $oneNews['Pershkrimi']; ?></p></div>
                 </div>
         </div>

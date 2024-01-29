@@ -62,9 +62,8 @@ $user = new User($db);
                             
                         <?php endforeach; ?>
                         <a href="javascript:void(0);" class="icon" onclick="navrespons()">
-                                <i class="fa fa-bars"></i>
-                            </a>
-               
+                            <i class="fa fa-bars"></i>
+                        </a>
                     </ul>
                 </div>
             </div>

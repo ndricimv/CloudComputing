@@ -12,7 +12,7 @@ $user = new User($db);
 $db = new Database();
 $servers = new Servers($db);
 $news = new News($db);
-$allServers = $servers->readServerFeature(1,2,3);
+$allServers = $servers->readServerFeature();
 $allNews = $news->readAllNews();
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $allNews = $news->readAllNews();
             <div class="featurediv width65">
                 <?php foreach ($allServers as $server): ?>
                     <div class="featureitem">
-                        <img src="<?php echo $server['foto']; ?>" alt="">
+                        <img src="<?php echo $configs->readConfig('imgurl');  echo $server['foto']; ?>" alt="">
                         <h2><?php echo $server['Titulli']; ?></h2>
                         <p><?php echo $server['Pershkrimi']; ?></p>
                         <p class="fcmimi">

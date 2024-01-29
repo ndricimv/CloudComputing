@@ -55,8 +55,6 @@ $user = new User($db);
                 <div class="logo"><a href="<?php echo $configs->readConfig('url'); ?>"><img src="<?php echo $configs->readConfig('imgurl');?>/logow.png" /></a></div>
                 <div class="nav" id="navid">
                     <ul>
-                  
-                        
                         <?php 
                             if (isset($_SESSION['user_id'])) {
                                 $user_id = $_SESSION['user_id'];
@@ -69,7 +67,10 @@ $user = new User($db);
                                 <li><a href="contacts.php">Contact</a></li>
                                 <li><a href="users.php">Users</a></li>
                                 <li><a href="siteconfig.php">Site Congif</a></li>
-                                <li><a href="'. $configs->readConfig('url').'/admin/menu.php">Menus</a></li>';
+                                <li><a href="'. $configs->readConfig('url').'/admin/menu.php">Menus</a></li>
+                                <a href="javascript:void(0);" class="icon" onclick="navrespons()">
+                                <i class="fa fa-bars"></i>
+                            </a>';
                                 } else {
                                 
                                 }

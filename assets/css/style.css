@@ -92,6 +92,10 @@ header {
         width:100%;
     }
 
+    .width65{
+        width:90%;
+    }
+
 }
 
 .topbarw {
@@ -197,6 +201,11 @@ header {
         width: 200px;
         float: none;
     }
+    .nav {
+        float: none;
+        margin: 0 10px  0 10px;
+        height: auto;
+    }
     .nav.responsive {
         position:relative;
     }
@@ -270,6 +279,11 @@ header {
     -moz-box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+
+.featureitem img {
+    max-width: 128px;
+    max-height: 128px;
 }
 
 .featureitem p {
@@ -390,6 +404,40 @@ header {
     margin-bottom:30px;
 }
 
+.imgpage{
+    float: left;
+    margin-right: 20px;
+    max-width: 400px;
+}
+
+.imgpage1{
+    float: right;
+    margin-right: 20px;
+    max-width: 400px;
+}
+
+@media screen and (max-width: 600px){
+    .imgpage{
+        width: 100%;
+        height:250px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+    }
+    
+    .imgpage1{
+        width: 100%;
+        height:250px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        float: none;
+    }
+    
+}
+
 .articel1 {
     flex: 0 0 auto;
     width: 100%;
@@ -417,6 +465,18 @@ header {
     width: 100%;
     height:250px;
     margin-bottom: 0px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.aimage1 {}
+.aimage1 img {
+    display: block;
+    width:100%;
+    height:100%;
+    max-width: 400px;
+    max-height: 400px;
+    margin:auto;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;

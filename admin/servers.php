@@ -25,6 +25,26 @@ if ($_SESSION['user_id']) {
         exit();
     }
 $pageid = 0;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['FServer'])) {
+        $selectedServers = implode(',', array_map('intval', $_POST['FServer']));
+        $db = new Database();
+
+        $sql = "UPDATE configs SET vlera = '$selectedServers' WHERE emri = 'FServer'";
+
+        if ($db->conn->query($sql) === TRUE) {
+            
+        } else {
+            echo "Error: " . $sql . "<br>" . $db->conn->error;
+        }
+        $db->conn->close();
+    } else {
+        
+    }
+} else {
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +67,18 @@ $pageid = 0;
                 <h2>Shto Server</h2>
                     <img src="../assets/imgs/icon1.png" alt="">
                     <a class="btn btn-block btn-mir" href="servers_post.php">Shto Server</a>
+                </div>
+                <div class="featureitem">
+                    <h2>Zgjidh servert qe shafen ne Ballin</h2>
+                    <form id="FServers" method="post" class="kotaktforma">
+                        <?php foreach ($allServers as $server): ?>
+                        <tr>
+                            <td><?php echo $server['id']; ?></td>
+                            <td><input type="checkbox" value="<?php echo $server['id']; ?>" id="FServer" name="FServer[]" onClick="just2cat();"></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <button class="btn btn-mir btn-block"  id="submit" name="submit">Posto</button>
+                    </from>
                 </div>
             </div>
         </div>

@@ -24,8 +24,11 @@ class Servers {
         return $result->fetch_assoc();
     }
 
-    public function readServerFeature($id1, $id2, $id3) {
-        $query = "SELECT * FROM servers WHERE id in ($id1, $id2, $id3)";
+    public function readServerFeature() {
+        $query = "SELECT * 
+        FROM servers
+        WHERE FIND_IN_SET(id, (SELECT vlera FROM configs WHERE emri = 'FServer'));";
+        
         $result = $this->db->conn->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
@@ -39,6 +42,5 @@ class Servers {
         $query = "DELETE FROM servers WHERE id = $id";
         return $this->db->conn->query($query);
     }
-
 }
 ?>
