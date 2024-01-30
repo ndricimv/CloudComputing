@@ -30,6 +30,7 @@ $user = new User($db);
                                         $user_role = $user->checkUserRole($user_id);
                                         $emri = '<p>Pershendetje ' .$user->readEmri('emri', $user_id) .'<p>';
                                         $dashboard = '<p><a href="' . $configs->readConfig('url') . '/admin/dashboard.php">Dashboard</a></p>';
+                                        $porosit = '<p><a href="' . $configs->readConfig('url') . '/user/index.php">Dashboard</a></p>';
 
                                         $logout = '<p><a href="' . $configs->readConfig('url') . '/logout.php">Logout</a></p>';
 
@@ -39,7 +40,8 @@ $user = new User($db);
                                             echo $logout;
                                             
                                         } elseif ($user_role === 'user') {
-                                            echo $emri ;
+                                            echo $emri;
+                                            echo $porosit;
                                             echo $logout;
                                             
                                         } else {

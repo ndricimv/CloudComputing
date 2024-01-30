@@ -107,7 +107,7 @@ if (isset($_GET['id'])) {
                         <p class="fomrerror" id="titulligabim"></p>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="pershkrimi" id="pershkrimi"><?php echo $existingServers['Pershkrimi']; ?></textarea>
+                        <textarea style="height:400px;" class="form-control" name="pershkrimi" id="pershkrimi"><?php echo $existingServers['Pershkrimi']; ?></textarea>
                         <p class="fomrerror" id="pershkrimigabim"></p>
                     </div>
                     <div class="form-group">
