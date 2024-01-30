@@ -62,26 +62,25 @@ if (isset($_GET['id'])) {
         <div class="feature">
             <div class="featurediv width65">
                 <div class="featureitem">
-                <h2>Shto Server</h2>
+                <h2>Shto Config</h2>
                     <img src="../assets/imgs/icon1.png" alt="">
-                    <a class="btn btn-block btn-mir" href="servers.php">Lisa e Serverve</a>
+                    <a class="btn btn-block btn-mir" href="siteconfig.php">Lisa e Configs</a>
                 </div>
             </div>
         </div>
         <div class="articels width65">
             <div class="width80">
-                <form method="post" name="ndryshoserver" class="kotaktforma" enctype="multipart/form-data">
+                <form method="post" name="ndryshoconfig" class="kotaktforma">
                     <p style="margin:20px 0 20px 0">Jepni te dhenat per tu regjistruar</p>
                     <div class="form-group">
-                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli"  value="<?php echo $existingConfigs['emri']; ?>" >
+                        <input class="form-control" type="text" placeholder="Titulli" name="titulli" id="titulli"  value="<?php echo $existingConfigs['emri']; ?>" require disabled>
                         <p class="fomrerror" id="titulligabim"></p>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="pershkrimi" id="pershkrimi"><?php echo $existingConfigs['vlera']; ?></textarea>
+                        <input class="form-control" name="pershkrimi" id="pershkrimi" value="<?php echo $existingConfigs['vlera']; ?>" require>
                         <p class="fomrerror" id="pershkrimigabim"></p>
                     </div>
-                    
-                    <button class="btn btn-mir btn-block" onclick="return shtoserverv()" type="submit" name="submit" >Shto</button>
+                    <button class="btn btn-mir btn-block"  type="submit" name="submit" >Shto</button>
                 </form>
             </div>
         </div>

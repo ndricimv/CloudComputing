@@ -396,9 +396,14 @@ header {
     background-color: white;
 }
 
+.articels a{
+    list-style: none;
+    text-decoration: none;
+
+}
+
 .articel {
     width: 33%;
-    flex-grow: 1;
     padding: 0 12px 0 12px;
     margin-bottom:30px;
 }
@@ -445,6 +450,7 @@ header {
 }
 .articel a {
     text-decoration: none;
+    color: #2e35b5;
 }
 .center-text {
     text-align: center;
@@ -747,19 +753,52 @@ footer {
     margin: 40px 0 0 0;
 }
 
-footer ul > li {
+footer ul > li, footer a {
     list-style: none;
     margin: 10px 10px auto;
+    text-decoration: none;
+    color: #FFF;
 }
 
 .footeri {
     display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
 	justify-content: space-between;
-	align-items: stretch;
-	align-content: stretch;
+    margin:auto;
+    padding: 20px 50px 20px 50px;
     color: #fff;
+}
+
+.footerleft,
+.footercenter,
+.footerright {
+    width: 33%;
+    flex-grow: 1;
+    padding: 0 12px 0 12px;
+    margin-bottom:30px;
+}
+
+@media screen and (max-width:960px) {
+    .footerleft,
+    .footercenter,
+    .footerright {
+        width: 100%;
+        padding: 0 12px 0 12px;
+        margin-bottom:30px;
+    }
+}
+.subs{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex {
+	flex: 1;
+    float: left;
+}
+.flex1 {
+	flex: 0;
+    float: left;
 }
 .table-wrapper {
     width: 100%;
@@ -790,7 +829,6 @@ table.serverat {
   table.serverat tfoot td {
     font-size: 14px;
   }
-
 
   .fotoneforma{
     width: 150px;

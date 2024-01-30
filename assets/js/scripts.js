@@ -258,8 +258,6 @@ function shtolajmvu() {
     return true;
 }
 
-	
-
 /*Slideri*/
 let i=0;
 let imgArrey = ["assets/imgs/s1.jpg", "assets/imgs/s2.jpg","assets//imgs/s3.jpg"];

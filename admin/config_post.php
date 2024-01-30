@@ -65,7 +65,7 @@ if ($_SESSION['user_id']) {
                         <p class="fomrerror" id="titulligabim"></p>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control"  name="pershkrimi"  id="pershkrimi"></textarea>
+                        <input class="form-control"  name="pershkrimi"  id="pershkrimi">
                         <p class="fomrerror" id="pershkrimigabim"></p>
                     </div>
                     <button class="btn btn-mir btn-block" onclick="return shtoserverv()" type="submit" name="submit" >Shto</button>

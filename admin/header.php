@@ -61,13 +61,13 @@ $user = new User($db);
                                 $user_role = $user->checkUserRole($user_id);
 
                                 if ($user_role === 'admin') {
-                                echo '<li><a href="'. $configs->readConfig('url').'/admin/servers.php">Servers</a></li>
-                                <li><a href="news.php">News</a></li>
-                                <li><a href="faqet.php">Abut US</a></li>
-                                <li><a href="contacts.php">Contact</a></li>
-                                <li><a href="users.php">Users</a></li>
-                                <li><a href="siteconfig.php">Site Congif</a></li>
-                                <li><a href="porosit.php">Porosit</a></li>
+                                echo '<li><a href="'. $configs->readConfig('url').'admin/servers.php">Servers</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/news.php">News</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/faqet.php">Abut US</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/contacts.php">Contact</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/users.php">Users</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/siteconfig.php">Site Congif</a></li>
+                                <li><a href="'. $configs->readConfig('url').'admin/porosit.php">Porosit</a></li>
                                 <li><a href="'. $configs->readConfig('url').'/admin/menu.php">Menus</a></li>
                                 <a href="javascript:void(0);" class="icon" onclick="navrespons()">
                                 <i class="fa fa-bars"></i>

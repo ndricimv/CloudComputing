@@ -41,17 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="atitle"><h3>Lokacioni 1</h3></div>
                 <div class="adresa">
                     <address class="s1">
-                        <span><i class="fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
-                        <span><i class="fa fa-phone fa-lg"></i>+123 456 789 12</span>
-                        <span><i class="fa fa-envelope fa-lg"></i>email@doamin.com</span>
+                        <span><i class="fa fa-map-marker fa-lg"></i><?php echo $configs->readConfig('Adresa'); ?></span>
+                        <span><i class="fa fa-phone fa-lg"></i><?php echo $configs->readConfig('telefoni'); ?></span>
+                        <span><i class="fa fa-envelope fa-lg"></i><?php echo $configs->readConfig('email'); ?></span>
                     </address>
                 </div>
                 <div class="atitle"><h3>Lokacioni 2</h3></div>
                 <div class="adresa">
                     <address class="s1">
-                        <span><i class="fa fa-map-marker fa-lg"></i>08 W 36th St, New York, NY 10001</span>
-                        <span><i class="fa fa-phone fa-lg"></i>+123 456 789 12</span>
-                        <span><i class="fa fa-envelope fa-lg"></i>email@doamin.com</span>
+                        <span><i class="fa fa-map-marker fa-lg"></i><?php echo $configs->readConfig('Adresa'); ?></span>
+                        <span><i class="fa fa-phone fa-lg"></i><?php echo $configs->readConfig('telefoni'); ?></span>
+                        <span><i class="fa fa-envelope fa-lg"></i><?php echo $configs->readConfig('email'); ?></span>
                     </address>
                 </div>
             </div>
