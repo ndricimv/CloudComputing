@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
         $autori = $autor;
         
 
-        if(isset($_FILES['foto'])){
+        if((isset($_FILES["foto"]["size"]) && ($_FILES["foto"]["size"] > 0)) ){
             $errors= array();
             $foto = $_FILES['foto']['name'];
             $file_tmp =$_FILES['foto']['tmp_name'];
@@ -58,6 +58,10 @@ if (isset($_GET['id'])) {
                print_r($errors);
                exit;
             }
+         }else {
+           
+            $foto = $existingServers['foto'];
+           
          }
 
         $servers->updateServer($id, $titulli, $pershkrimi, $cmimi, $foto, $autori);
@@ -115,7 +119,7 @@ if (isset($_GET['id'])) {
                         <input class="form-control" type="file" id="foto" name="foto">
                         <p class="fomrerror" id="fotogabim"></p>
                     </div>
-                    <button class="btn btn-mir btn-block" onclick="return shtoserverv()" type="submit" name="submit" >Shto</button>
+                    <button class="btn btn-mir btn-block" onclick="return shtoservervu()" type="submit" name="submit" >Shto</button>
                 </form>
             </div>
         </div>

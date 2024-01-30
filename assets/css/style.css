@@ -261,8 +261,6 @@ header {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    
-    
 }
 
 .featureitem {
@@ -304,11 +302,13 @@ header {
 .serversdiv {
     display: flex;
     flex-wrap: wrap;
+    align-content: space-between;
     justify-content: center;
 }
 
 .serveritem {
     width: 31.33%;
+    flex-grow: 1;
     margin: 0 10px 20px 10px;
     padding: 40px;
     background: #ffffff;
@@ -388,18 +388,17 @@ header {
 }
 
 .articels{
-    margin:auto;
     display: flex;
     flex-wrap: wrap;
+    align-content: space-between;
+    margin:auto;
     padding: 20px 50px 20px 50px;
-    flex-grow: 1;
     background-color: white;
-
 }
 
 .articel {
-    flex: 0 0 auto;
-    width: 33.33333333%;
+    width: 33%;
+    flex-grow: 1;
     padding: 0 12px 0 12px;
     margin-bottom:30px;
 }

@@ -21,8 +21,11 @@ class User {
     public function authenticateUser($username, $password) {
         $hashed_password = $this->getHashedPassword($username);
         if ($hashed_password && password_verify($password, $hashed_password)) {
+            $kycja = date("Y-m-d H:i:s");
             $query = "SELECT id FROM users WHERE username = '$username'";
+            $query1 = "UPDATE users SET kycja='$kycja' WHERE username = '$username' ";
             $result = $this->db->conn->query($query);
+            $result1 = $this->db->conn->query($query1);
 
             if ($result->num_rows > 0) {
                 $user = $result->fetch_assoc();

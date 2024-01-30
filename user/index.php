@@ -46,7 +46,7 @@ $pageid = 0;
         </div>
         <div class="articels width65">
             <div class="table-wrapper">
-            Pershendetje <?php echo $user->readEmri('emri',$user_id) ." ". $user->readEmri('mbiemri',$user_id) ."<br> Data dhe Koha e Kycjes: <b>" . $date = date("Y-m-d H:i:s"). "</b>"; ?>
+            Pershendetje <?php echo $user->readEmri('emri',$user_id) ." ". $user->readEmri('mbiemri',$user_id) ."<br> Data dhe Koha e Kycjes: <b>" . $user->readEmri('kycja',$user_id). "</b>"; ?>
             <a class="btn btn-mir" href="porosit.php">Porosit </a>
             </div>
         </div>

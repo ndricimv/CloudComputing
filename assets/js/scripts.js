@@ -143,15 +143,12 @@ function shtoserverv() {
 
     let titulli = document.getElementById('titulli').value;
     let titulligabim = document.getElementById('titulligabim');
-    //let pershkrimi = document.getElementById('pershkrimi').value;
-    //let pershkrimigabim = document.getElementById('pershkrimigabim');
     let cmimi = document.getElementById('cmimi').value;
     let cmimigabim = document.getElementById('cmimigabim');
 	let foto = document.getElementById('foto').value;
     let fotogabim = document.getElementById('fotogabim');
 
     titulligabim.innerText = '';
-    //pershkrimigabim.innerText = '';
     cmimigabim.innerText = '';
 	fotogabim.innerText = '';
 
@@ -159,11 +156,6 @@ function shtoserverv() {
         titulligabim.innerText = "Titulli nuk permban formatin e lejuar Text, hapesir, numer.";
         return false;
     }
-
-    //if (!titulliRegex.test(pershkrimi) || (pershkrimi.length < 5)) {
-    //    pershkrimigabim.innerText = "Pershkrimi nuk permban formatin e lejuar Text, hapesir, numer dhe me shume se 5 karaktere.";
-    //    return false;
-	//}
 
     if (!cmimiRegex.test(cmimi)) {
 		cmimigabim.innerText = "Cmimi nuk perban formatin e lejuat vetem numer.";
@@ -175,6 +167,32 @@ function shtoserverv() {
          return false;
     }
 
+    return true;
+}
+
+/*Validimi i formes per server*/
+function shtoserverv() {
+
+    let titulliRegex = /^[A-Za-z0-9\s]+$/;
+	let cmimiRegex = /^\d+(\.\d{1,2})?$/;
+
+    let titulli = document.getElementById('titulli').value;
+    let titulligabim = document.getElementById('titulligabim');
+    let cmimi = document.getElementById('cmimi').value;
+    let cmimigabim = document.getElementById('cmimigabim');
+
+    titulligabim.innerText = '';
+    cmimigabim.innerText = '';
+
+    if (!titulliRegex.test(titulli)) {
+        titulligabim.innerText = "Titulli nuk permban formatin e lejuar Text, hapesir, numer.";
+        return false;
+    }
+
+    if (!cmimiRegex.test(cmimi)) {
+		cmimigabim.innerText = "Cmimi nuk perban formatin e lejuat vetem numer.";
+         return false;
+    }
     return true;
 }
 
@@ -210,6 +228,32 @@ function shtolajmv() {
 		fotogabim.innerText = "Formati i fotos nuk eshe i lejuar perdor png, jpeg, jpg.";
          return false;
     }
+
+    return true;
+}
+
+/*Validimi i formes per lajme update*/
+function shtolajmvu() {
+
+    let titulliRegex = /^[a-zA-Z0-9\s\W]+$/;
+
+    let titulli = document.getElementById('titulli').value;
+    let titulligabim = document.getElementById('titulligabim');
+	let pershkrimi = document.getElementById('pershkrimi').value;
+    let pershkrimigabim = document.getElementById('pershkrimigabim');
+
+    titulligabim.innerText = '';
+	pershkrimigabim.innerText = '';
+
+    if (!titulliRegex.test(titulli)) {
+        titulligabim.innerText = "Titulli nuk permban formatin e lejuar Text, hapesir, numer.";
+        return false;
+    }
+
+    if (!titulliRegex.test(pershkrimi) || (pershkrimi.length < 5)) {
+        pershkrimigabim.innerText = "Pershkrimi nuk permban formatin e lejuar Text, hapesir, numer dhe me shume se 5 karaktere.";
+        return false;
+	}
 
     return true;
 }

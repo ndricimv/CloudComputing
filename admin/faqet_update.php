@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
         $permbajtja = $_POST['pershkrimi'];
         $autori = $autor;
 
-        if(isset($_FILES['foto'])){
+        if((isset($_FILES["foto"]["size"]) && ($_FILES["foto"]["size"] > 0)) ){
             $errors= array();
             $foto = $_FILES['foto']['name'];
             $file_tmp =$_FILES['foto']['tmp_name'];
@@ -52,6 +52,10 @@ if (isset($_GET['id'])) {
                print_r($errors);
                exit;
             }
+         }else {
+           
+            $foto = $existingFaqe['foto'];
+           
          }
         $faqet->updateFaqe($id, $titulli, $permbajtja, $foto, $autori);
 
@@ -97,7 +101,7 @@ if (isset($_GET['id'])) {
                         <input class="form-control" type="file" id="foto" name="foto">
                         <p class="fomrerror" id="fotogabim"></p>
                     </div>
-                    <button class="btn btn-mir btn-block" onclick="return shtolajmv()" type="submit" name="submit" >Ruaj</button>
+                    <button class="btn btn-mir btn-block" onclick="return shtolajmvu()" type="submit" name="submit" >Ruaj</button>
                 </form>
             </div>
         </div>
